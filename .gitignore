@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.DS_Store
+
+# Large/intermediate data — corpus paths point at ~/Downloads; checkpoints live here.
+data/
+
+# Inside results/, commit visual evidence + metrics, but NOT audio (copyright-safe + repo-size).
+results/**/*.wav
+results/**/*.mp3
+results/**/*.flac
+results/**/*.ogg
+results/**/*.m4a

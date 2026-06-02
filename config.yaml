@@ -1,0 +1,36 @@
+# decoder-swap experiment config
+
+codec:
+  # Which codec implementation to use. Only "dac" wired up for M0.
+  # DAC model_type ∈ {"44khz", "24khz", "16khz"}. 44khz is highest quality and ships with 9 RVQ codebooks.
+  name: dac
+  model_type: "44khz"
+  # If null, descript-audio-codec resolves+downloads the latest tagged weights to ~/.cache/descript/.
+  model_tag: null
+  # Optional explicit path to a .pth checkpoint; overrides model_tag if set.
+  model_path: null
+
+device: auto                # auto | cpu | mps | cuda
+seed: 0
+
+# Corpora.
+# CORPUS_NEW: target timbral world for D2 (the decoder learns to re-voice tokens toward this).
+# Held-out clip: lives outside corpus_new; used at M4 to test that re-voicing generalises (not memorises).
+corpora:
+  new:
+    - "/Users/jonno/Downloads/Vytis - Greatest Hits Vol. 1.mp3"
+    - "/Users/jonno/Downloads/Vytis - Greatest Hits Vol. 3.mp3"
+  orig: null
+  heldout: "/Users/jonno/src/decoder_swap/results/m1_sanity/Blue Kentucky Girl.mp3"
+
+train:
+  batch_size: 4
+  segment_seconds: 1.5
+  lr: 1.0e-4                # safe once weight_norm is removed from decoder (MPS backward bug)
+  steps: 100                # short validation run; bump for the real fine-tune
+  log_every: 10
+  codebook_check_every: 25  # periodic frozen-codebook drift assertion
+  ckpt_every: 200           # save D2 every N steps; early-termination keeps last save
+  ckpt_dir: data/checkpoints
+
+results_dir: results

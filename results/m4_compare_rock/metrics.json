@@ -1,0 +1,93 @@
+{
+  "sample_rate": 44100,
+  "duration_seconds": 255.55882086167802,
+  "structure_preservation": {
+    "onset_agreement_s1_vs_s2": {
+      "n_onsets_s1": 498,
+      "n_onsets_s2": 452,
+      "n_matched_within_50ms": 415,
+      "mean_abs_diff_ms": 1.5386716935769174,
+      "precision": 0.918141592920354,
+      "recall": 0.8333333333333334,
+      "f1": 0.8736842105263157,
+      "tolerance_ms": 50.0
+    },
+    "rms_envelope_correlation_s1_vs_s2": {
+      "correlation": 0.9733474834903947,
+      "n_frames": 22013,
+      "s1_mean_rms": 0.18539106845855713,
+      "s2_mean_rms": 0.1538393646478653
+    },
+    "tempo_agreement_s1_vs_s2": {
+      "tempo_s1_bpm": 93.96306818181819,
+      "tempo_s2_bpm": 92.28515625,
+      "abs_delta_bpm": 1.677911931818187
+    }
+  },
+  "realisation_change": {
+    "mfcc_distance_s1_vs_s2": 5.1023430824279785,
+    "mel_db_distance_s1_vs_s2": 2.6277623176574707,
+    "spectral_centroid_summary_s1_vs_s2": {
+      "correlation": 0.7992504134425905,
+      "s1_mean_hz": 3083.357320166001,
+      "s2_mean_hz": 2735.196930562219,
+      "s1_std_hz": 952.358823763359,
+      "s2_std_hz": 699.1155049387627
+    },
+    "chroma_cosine_similarity_s1_vs_s2": 0.9526352286338806
+  },
+  "forgetting_probe": {
+    "mel_db_distance_input_vs_s1": 1.9908844232559204,
+    "mel_db_distance_input_vs_s2": 3.054527521133423,
+    "mfcc_distance_input_vs_s1": 3.624453067779541,
+    "mfcc_distance_input_vs_s2": 5.83615779876709
+  },
+  "meta": {
+    "input_path": "/Users/jonno/Downloads/AC-DC-Back-In-Black_Media_128k.mp3",
+    "tokens_shape": [
+      1,
+      9,
+      22012
+    ],
+    "d2_train": {
+      "decoder_weight_norm_removed": true,
+      "train_config": {
+        "sample_rate": 44100,
+        "batch_size": 4,
+        "segment_seconds": 1.5,
+        "lr": 0.0001,
+        "steps": 2500,
+        "log_every": 10,
+        "codebook_check_every": 25,
+        "ckpt_every": 200,
+        "waveform_weight": 1.0,
+        "grad_clip": 5.0,
+        "ckpt_dir": "/Users/jonno/src/decoder_swap/data/checkpoints",
+        "seed": 0
+      },
+      "convention": {
+        "sample_rate": 44100,
+        "frame_rate": 86.1328125,
+        "hop_length": 512,
+        "n_codebooks": 9,
+        "codebook_size": 1024,
+        "latent_dim": 1024
+      },
+      "codebook_fingerprints_start": [
+        "768d8cb4d505133e085e4daad02e642f770b3f1db753d5f8abc5ee7512326626",
+        "c553197eac59259716747f48365ce86bd36e78e94e59d07ec699fb033af9eeb0",
+        "40ebaafe2ba881716b5e8c3e868e8a339ac7644a64ea063e97209b5bc776abf1",
+        "4c34f9ebe2766dfba636aca7fd7b72119190f5b4bfe0d17dfc55498995c3888b",
+        "45448476bff3c1a90ef3817e1f1a01c9aa9fc5fd563184e63f3700f90b0c277a",
+        "a122b1e1c8b4c4192acdaf0ab563866c6037876af850356df4a9a18736366936",
+        "167c2215867ffee1fd68df253a6ce766ab2647ed1645c8c94583bbbefaf98e38",
+        "529fd9d48b40d119151a74c6d7a530763aa9774a1978c24c7ca8541b65ca1232",
+        "eb20bd8e0f067766c3a356a6eff7b41e2b4554b1b6b0c16289b61f604f96e120"
+      ],
+      "loss_first_window": 1.01974915266037,
+      "loss_last_window": 0.5541599929332733,
+      "steps": 2500,
+      "elapsed_seconds": 6487.583030700684
+    }
+  }
+}
