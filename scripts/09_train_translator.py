@@ -45,7 +45,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--window-seconds", type=float, default=3.0)
     ap.add_argument("--lr", type=float, default=3e-4)
     ap.add_argument("--grad-clip", type=float, default=1.0)
-    ap.add_argument("--weight-decay", type=float, default=0.01)
+    ap.add_argument("--weight-decay", type=float, default=0.0,
+                    help="0 by default (M6.A: wd>0 caused late-stage collapse to uniform output)")
     ap.add_argument("--warmup-steps", type=int, default=0,
                     help="linear lr warmup over this many steps (0 = disabled)")
     ap.add_argument("--log-every", type=int, default=20)

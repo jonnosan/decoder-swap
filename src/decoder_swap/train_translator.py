@@ -37,8 +37,15 @@ class TranslatorTrainConfig:
     steps: int = 5000
     lr: float = 3e-4
     grad_clip: float = 1.0
-    weight_decay: float = 0.01
-    warmup_steps: int = 0     # linear lr ramp 0 -> lr over this many steps; 0 disables warmup
+    # weight_decay=0 (not the AdamW default 0.01): we found this was the root cause of
+    # the M6.A "late-stage collapse to ln(vocab)" pathology. AdamW's weight decay slowly
+    # shrinks embed.weight; once the embedding magnitude drops below the sinusoidal
+    # positional encoding's, the model can only predict position-conditional uniform
+    # output, and the loss collapses to ln(vocab_size). Setting wd=0 keeps the embedding
+    # signal alive and training stable.
+    weight_decay: float = 0.0
+    warmup_steps: int = 0       # linear lr ramp 0 -> lr over this many steps; 0 disables warmup
+    lr_min_ratio: float = 0.1   # cosine decays to cfg.lr * this; 1.0 disables decay (constant lr)
 
     # Logging / checkpointing
     log_every: int = 20
@@ -155,12 +162,22 @@ def train_translator(
     )
 
     def lr_for_step(step: int) -> float:
-        """Linear warmup over cfg.warmup_steps, then constant. Step is 1-indexed."""
-        if cfg.warmup_steps <= 0:
-            return cfg.lr
-        if step >= cfg.warmup_steps:
-            return cfg.lr
-        return cfg.lr * (step / cfg.warmup_steps)
+        """Linear warmup over cfg.warmup_steps, then cosine decay to cfg.lr * cfg.lr_min_ratio
+        over the remaining steps. Step is 1-indexed.
+
+        Cosine decay matters for long runs: the M6.A 5000-step constant-lr trajectory
+        learned for ~1500 steps then a bad gradient kicked it into the degenerate
+        uniform-output basin. Cosine decay shrinks late-stage step magnitudes so a
+        single bad batch can't destabilise an already-good model.
+        """
+        if step < cfg.warmup_steps:
+            # Linear warmup 0 -> cfg.lr
+            return cfg.lr * (step / max(1, cfg.warmup_steps))
+        # Post-warmup: cosine decay from cfg.lr to cfg.lr * cfg.lr_min_ratio over remaining steps.
+        progress = (step - cfg.warmup_steps) / max(1, cfg.steps - cfg.warmup_steps)
+        progress = min(1.0, max(0.0, progress))
+        cosine = 0.5 * (1.0 + math.cos(math.pi * progress))
+        return cfg.lr * (cfg.lr_min_ratio + (1.0 - cfg.lr_min_ratio) * cosine)
 
     random_baseline = math.log(cfg.vocab_size)
     print(f"  window: {cfg.window_seconds:.1f} s = {window_frames} frames = {flat_len} flat tokens")
@@ -171,6 +188,7 @@ def train_translator(
     ckpt_dir = Path(cfg.ckpt_dir)
     ckpt_dir.mkdir(parents=True, exist_ok=True)
     ckpt_path = ckpt_dir / "translator_lm.pt"
+    best_ckpt_path = ckpt_dir / "translator_lm_best.pt"
 
     losses: list[float] = []
     log_buf: list[float] = []
@@ -178,6 +196,7 @@ def train_translator(
     t0 = time.time()
     interrupted = False
     completed_step = 0
+    best_window_loss = float("inf")
 
     model.train()
     try:
@@ -214,11 +233,19 @@ def train_translator(
                 elapsed = time.time() - t0
                 sps = step / max(elapsed, 1e-9)
                 eta_s = (cfg.steps - step) / max(sps, 1e-9)
+                cur_lr_disp = lr_for_step(step)
                 print(
-                    f"  step {step:>5d}/{cfg.steps}  loss={avg:.4f}  "
+                    f"  step {step:>5d}/{cfg.steps}  loss={avg:.4f}  lr={cur_lr_disp:.2e}  "
                     f"elapsed={elapsed:6.1f}s  rate={sps:.2f} steps/s  eta={eta_s:6.1f}s",
                     flush=True,
                 )
+                # "Keep best" ckpt — track lowest log-window-averaged loss seen so far and
+                # save a separate translator_lm_best.pt whenever it improves. Guards against
+                # late-stage collapse silently overwriting good weights via the periodic ckpt.
+                if math.isfinite(avg) and avg < best_window_loss:
+                    best_window_loss = avg
+                    _save_checkpoint(model, cfg, step, elapsed, losses, best_ckpt_path)
+                    print(f"  [best] new best window loss {avg:.4f} -> {best_ckpt_path}", flush=True)
 
             if step % cfg.ckpt_every == 0:
                 _save_checkpoint(model, cfg, step, time.time() - t0, losses, ckpt_path)
