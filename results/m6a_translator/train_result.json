@@ -1,0 +1,30 @@
+{
+  "steps": 5000,
+  "elapsed_seconds": 10043.399954080582,
+  "loss_first_window": 6.921307158470154,
+  "loss_last_window": 6.821851587295532,
+  "improvement_pct": 1.4369478033193546,
+  "random_baseline": 6.931471805599453,
+  "nan_steps": 0,
+  "ckpt_path": "/Users/jonno/src/decoder_swap/data/checkpoints/translator/translator_lm.pt",
+  "config": {
+    "n_codebooks": 9,
+    "vocab_size": 1024,
+    "frame_rate": 86.1328125,
+    "batch_size": 8,
+    "window_seconds": 3.0,
+    "seed": 0,
+    "steps": 5000,
+    "lr": 0.0003,
+    "grad_clip": 1.0,
+    "weight_decay": 0.01,
+    "log_every": 20,
+    "ckpt_every": 500,
+    "ckpt_dir": "/Users/jonno/src/decoder_swap/data/checkpoints/translator",
+    "d_model": 384,
+    "n_layers": 6,
+    "n_heads": 6,
+    "d_ff": 1536,
+    "dropout": 0.0
+  }
+}
