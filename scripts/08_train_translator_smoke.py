@@ -29,6 +29,7 @@ import torch
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
+from decoder_swap.corpus import load_corpus  # noqa: E402
 from decoder_swap.settings import resolve_device  # noqa: E402
 from decoder_swap.translator import (  # noqa: E402
     FlatARTransformer,
@@ -40,8 +41,12 @@ from decoder_swap.translator import (  # noqa: E402
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--tokens-dir", default="data/tokens_dac")
-    ap.add_argument("--out-dir", default="results/m6_smoke")
+    ap.add_argument("--corpus", default="techno",
+                    help="corpus name (loads corpora/<name>.yaml). Default: techno.")
+    ap.add_argument("--tokens-dir", default=None,
+                    help="override corpus-default tokens dir (data/tokens_dac/<corpus>/)")
+    ap.add_argument("--out-dir", default=None,
+                    help="override corpus-default out dir (results/m6_smoke_<corpus>/)")
     ap.add_argument("--steps", type=int, default=300)
     ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--window-seconds", type=float, default=3.0)
@@ -100,14 +105,16 @@ class TokenBatchSampler:
 def main() -> int:
     args = parse_args()
     device = resolve_device("auto")
-    print("# M6.0 step 2: translator feasibility smoke")
+    print(f"# M6.0 translator feasibility smoke — corpus '{args.corpus}'")
     print(f"device: {device}")
 
     torch.manual_seed(args.seed)
 
-    tokens_dir = REPO_ROOT / args.tokens_dir
-    out_dir = REPO_ROOT / args.out_dir
+    corpus = load_corpus(args.corpus)
+    tokens_dir = Path(args.tokens_dir) if args.tokens_dir else corpus.tokens_dir(codec="dac")
+    out_dir = Path(args.out_dir) if args.out_dir else corpus.results_dir("m6_smoke")
     out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"corpus:     {corpus.name}")
     print(f"tokens_dir: {tokens_dir}")
     print(f"out_dir:    {out_dir}")
 

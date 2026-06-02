@@ -31,12 +31,16 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from decoder_swap.codec_io import encode_to_codes, load_codec  # noqa: E402
+from decoder_swap.corpus import load_corpus  # noqa: E402
 from decoder_swap.settings import load_settings, resolve_device  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out-dir", default="data/tokens_dac", help="where to write per-track .npy")
+    ap.add_argument("--corpus", default="techno",
+                    help="corpus name (loads corpora/<name>.yaml). Default: techno.")
+    ap.add_argument("--out-dir", default=None,
+                    help="override the corpus-default output dir (data/tokens_dac/<corpus>/)")
     ap.add_argument("--chunk-seconds", type=float, default=30.0, help="audio chunk size for encode")
     ap.add_argument("--max-seconds", type=float, default=None,
                     help="only encode the first N seconds of each track (smoke / debug)")
@@ -65,11 +69,11 @@ def main() -> int:
     args = parse_args()
     settings = load_settings()
     device = resolve_device(settings.device)
-    print("# M6.0 step 1: cache DAC tokens for CORPUS_NEW")
+    print(f"# cache DAC tokens for corpus '{args.corpus}'")
     print(f"device: {device}")
 
-    # Force DAC regardless of what's currently in config.yaml — translator first-attempt is DAC-only
-    # (issue #6). Mimi is a different vocab/frame-rate and would need a separate cache.
+    # Force DAC regardless of what's currently in config.yaml — translator pipeline is DAC-only.
+    # Mimi would need a separate cache under data/tokens_mimi/<corpus>/.
     codec = load_codec(name="dac", model_type="44khz", device=device)
     sr = codec.convention.sample_rate
     n_q = codec.convention.n_codebooks
@@ -77,13 +81,15 @@ def main() -> int:
     print(f"codec: DAC 44 kHz · {n_q} codebooks × {codec.convention.codebook_size} entries · "
           f"{fps:.2f} fps · hop {codec.convention.hop_length}")
 
-    corpus_paths = settings.raw["corpora"]["new"]
+    corpus = load_corpus(args.corpus)
+    corpus_paths = corpus.audio_paths
     if not corpus_paths:
-        print("config.corpora.new is empty — nothing to cache")
+        print(f"corpus '{corpus.name}' has no audio_paths — nothing to cache")
         return 1
 
-    out_dir = REPO_ROOT / args.out_dir
+    out_dir = Path(args.out_dir) if args.out_dir else corpus.tokens_dir(codec="dac")
     out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"corpus:  {corpus.name} ({len(corpus_paths)} track(s))")
     print(f"out_dir: {out_dir}")
 
     chunk_samples = int(round(args.chunk_seconds * sr))

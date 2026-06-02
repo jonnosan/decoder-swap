@@ -1,0 +1,19 @@
+# Per-corpus config. One of these per genre/style.
+#
+# Add a new corpus by copying this file (e.g. corpora/vaporwave.yaml), setting `name` to a
+# short slug, and pointing `audio_paths` at the source files. All other artifacts
+# (cached tokens, checkpoints, results) get foldered under this `name` automatically.
+
+name: techno
+description: |
+  Deep techno DJ sets — Vytis "Greatest Hits" Vol. 1 (122 min) + Vol. 3 (75 min), 197 min total.
+  This is the corpus used for M3 decoder-swap fine-tune and M6.A unconditional LM training.
+
+# Audio files that make up the corpus. Absolute paths recommended.
+audio_paths:
+  - /Users/jonno/Downloads/Vytis - Greatest Hits Vol. 1.mp3
+  - /Users/jonno/Downloads/Vytis - Greatest Hits Vol. 3.mp3
+
+# Held-out clips for evaluation. These MUST NOT appear in audio_paths.
+heldout:
+  - results/m1_sanity/Blue Kentucky Girl.mp3

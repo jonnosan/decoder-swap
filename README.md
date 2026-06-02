@@ -66,6 +66,55 @@ External prerequisites for M7 (separate components, not built in this repo):
 
 The shared vocabulary contract lives in [docs/JTXTOK_SPEC.md](docs/JTXTOK_SPEC.md).
 
+## Multi-corpus convention
+
+Same architecture, swappable per-corpus weights. The jtxtok contract is genre-agnostic by
+design, so adding a new style (vaporwave, drum-and-bass, …) is a corpus swap, not a code
+change.
+
+Each style has one config file in `corpora/`:
+
+```yaml
+# corpora/<name>.yaml
+name: vaporwave
+description: "…"
+audio_paths: [ ... ]   # source audio files
+heldout: [ ... ]       # held-out clips for eval (NOT in audio_paths)
+```
+
+All artifacts get foldered under the corpus name automatically:
+
+| Artifact | Path |
+|---|---|
+| Cached DAC tokens | `data/tokens_dac/<corpus>/` |
+| Base LM checkpoint (M6.A) | `data/checkpoints/translator/<corpus>/translator_lm.pt` |
+| Conditioned checkpoint (M7) | `data/checkpoints/translator/<corpus>/<later>` |
+| D2 decoder-swap weights (M3) | `data/checkpoints/d2/<corpus>/d2_decoder.pt` |
+| Training results | `results/m6a_<corpus>/`, `results/m7_<corpus>/`, … |
+
+Scripts accept `--corpus <name>` (default: `techno`). Explicit path flags
+(`--tokens-dir`, `--ckpt-dir`, `--out-dir`) override the corpus-default paths when needed.
+
+**Adding a new corpus:**
+
+```bash
+# 1. drop a YAML config
+cp corpora/techno.yaml corpora/vaporwave.yaml
+$EDITOR corpora/vaporwave.yaml   # set name + audio_paths
+
+# 2. cache tokens for the new corpus
+uv run python scripts/07_cache_translator_tokens.py --corpus vaporwave
+
+# 3. train a base LM for it
+uv run python scripts/09_train_translator.py --corpus vaporwave
+```
+
+The legacy single-folder layout from before this convention can be migrated with:
+
+```bash
+uv run python scripts/migrate_to_corpus.py techno
+```
+
 ## Setup
 
 ```bash
@@ -474,17 +523,23 @@ scripts/
   03b_diag_nan.py                # the script that found the MPS NaN bugs (kept for posterity)
   04_compare.py                  # M4 — overridable input + out-dir
   05_plots.py                    # M5
-  07_cache_translator_tokens.py  # M6.0 step 1 — encode CORPUS_NEW → data/tokens_dac/
+  07_cache_translator_tokens.py  # M6.0 step 1 — encode corpus → data/tokens_dac/<corpus>/
   08_train_translator_smoke.py   # M6.0 step 2 — tiny AR transformer feasibility smoke
   09_train_translator.py         # M6.A — scaled-up LM, configurable model + steps
+  migrate_to_corpus.py           # one-shot legacy-layout → per-corpus migration
 results/
   m1_sanity/             # round-trip wavs
   m3_training_loss.png
   m4_compare/            # input.wav, S1.wav, S2.wav, metrics.json, comparison.png (country)
   m4_compare_rock/       # same, for AC/DC
   m6_smoke/              # smoke_loss.png + JSONs for the M6.0 feasibility result
-data/                    # gitignored — corpus paths in config.yaml, checkpoints, intermediates
-  tokens_dac/            # gitignored — cached DAC token streams per CORPUS_NEW track
+corpora/                 # per-corpus YAML configs (one file per style)
+  techno.yaml            # Vytis deep-techno corpus (197 min)
+data/                    # gitignored — checkpoints + intermediates
+  tokens_dac/<corpus>/   # gitignored — cached DAC token streams per corpus
+  checkpoints/
+    translator/<corpus>/ # base LM + (later) jtxtok-conditioned weights
+    d2/<corpus>/         # decoder-swap M3 D2 weights (legacy)
 docs/
   JTXTOK_SPEC.md         # v1 token-format contract (canonical: jamtronix repo)
   prompts/               # the three Claude Code build prompts (PROMPT_1, PROMPT_2, PROMPT_3)

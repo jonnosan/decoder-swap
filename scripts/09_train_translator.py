@@ -22,6 +22,7 @@ import numpy as np
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
+from decoder_swap.corpus import load_corpus  # noqa: E402
 from decoder_swap.settings import resolve_device  # noqa: E402
 from decoder_swap.train_translator import (  # noqa: E402
     TranslatorTrainConfig,
@@ -31,9 +32,14 @@ from decoder_swap.train_translator import (  # noqa: E402
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--tokens-dir", default="data/tokens_dac")
-    ap.add_argument("--ckpt-dir", default="data/checkpoints/translator")
-    ap.add_argument("--out-dir", default="results/m6a_translator")
+    ap.add_argument("--corpus", default="techno",
+                    help="corpus name (loads corpora/<name>.yaml). Default: techno.")
+    ap.add_argument("--tokens-dir", default=None,
+                    help="override corpus-default tokens dir (data/tokens_dac/<corpus>/)")
+    ap.add_argument("--ckpt-dir", default=None,
+                    help="override corpus-default ckpt dir (data/checkpoints/translator/<corpus>/)")
+    ap.add_argument("--out-dir", default=None,
+                    help="override corpus-default results dir (results/m6a_<corpus>/)")
     ap.add_argument("--steps", type=int, default=5000)
     ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--window-seconds", type=float, default=3.0)
@@ -56,15 +62,22 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     device = resolve_device("auto")
-    print("# M6.A: scaled-up techno LM training")
+    print(f"# M6.A: scaled-up LM training — corpus '{args.corpus}'")
     print(f"device: {device}")
 
-    tokens_dir = REPO_ROOT / args.tokens_dir
-    out_dir = REPO_ROOT / args.out_dir
+    corpus = load_corpus(args.corpus)
+    tokens_dir = Path(args.tokens_dir) if args.tokens_dir else corpus.tokens_dir(codec="dac")
+    ckpt_dir = Path(args.ckpt_dir) if args.ckpt_dir else corpus.translator_ckpt_dir()
+    out_dir = Path(args.out_dir) if args.out_dir else corpus.results_dir("m6a")
     out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"corpus:    {corpus.name}")
+    print(f"tokens:    {tokens_dir}")
+    print(f"ckpts:     {ckpt_dir}")
+    print(f"out:       {out_dir}")
     paths = sorted(tokens_dir.glob("*.npy"))
     if not paths:
-        print(f"no cached tokens under {tokens_dir} — run scripts/07_cache_translator_tokens.py first")
+        print(f"no cached tokens under {tokens_dir} — "
+              f"run: uv run python scripts/07_cache_translator_tokens.py --corpus {args.corpus}")
         return 1
 
     tracks = [np.load(p) for p in paths]
@@ -86,7 +99,7 @@ def main() -> int:
         warmup_steps=args.warmup_steps,
         log_every=args.log_every,
         ckpt_every=args.ckpt_every,
-        ckpt_dir=str(REPO_ROOT / args.ckpt_dir),
+        ckpt_dir=str(ckpt_dir),
         d_model=args.d_model,
         n_layers=args.n_layers,
         n_heads=args.n_heads,
