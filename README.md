@@ -41,7 +41,7 @@ single-element drift — see `scripts/02_freeze_check.py`.
 
 ## Status
 
-All milestones complete (2026-06-02):
+Decoder-swap milestones complete (2026-06-02). Token-translator follow-up (issue #6) in progress:
 
 - [x] **M0** — skeleton + codec verification
 - [x] **M1** — sanity round-trip
@@ -49,6 +49,10 @@ All milestones complete (2026-06-02):
 - [x] **M3** — decoder fine-tune on CORPUS_NEW
 - [x] **M4** — comparison (S1 vs S2)
 - [x] **M5** — plots + writeup
+- [x] **M6.0** — token-translator feasibility smoke (see below) — **PASS**, build green-lit
+- [ ] **M6.A** — scaled-up techno LM (issue #6 Phase A)
+- [ ] **M6.B** — prefix-conditioned sampling (issue #6 Phase B)
+- [ ] **M6.C** — evaluation vs decoder-swap baseline (issue #6 Phase C)
 
 ## Setup
 
@@ -335,6 +339,53 @@ These cost time to find — recording so we don't pay them again.
    artifacts at boundaries are identical in S1 and S2 (shared encoder, identical tokens) so they
    don't bias the comparison.
 
+## M6.0 — token translator feasibility smoke (issue #6)
+
+Before committing to the full translator architecture, ran the cheapest possible validation
+of its load-bearing premise: *can a small transformer AR-predict DAC token sequences at all?*
+
+- Cache: encoded full 197 min of Vytis with frozen DAC → `data/tokens_dac/` (~1.02 M frames,
+  9.17 M flat tokens). Wall clock 10 min on M4 Pro MPS, ~1722 frames/s.
+- Model: tiny flat-interleaved AR transformer (~3.4 M params, d_model=256, 4 layers, 4 heads,
+  sinusoidal positions, weight-tied output head). One token = one DAC code; sequence length
+  for a 3 s crop = 258 frames × 9 codebooks ≈ 2.3 k tokens.
+- Train: next-token CE, 300 steps × batch 8, AdamW lr=3e-4, grad-clip 1.0. ~4 min on MPS.
+
+|  | nats |
+|---|---:|
+| Random baseline (uniform 1/1024) | 6.9315 |
+| Loss[first 10 steps avg] | 5.3697 |
+| **Loss[last 10 steps avg]** | **4.6693** |
+| Improvement | +0.70 nats (+13 %) |
+
+Clean descent, flattens around step 200 at ~4.67 — well past the PASS threshold (≤5.5) and
+within striking distance of STRONG (≤4.5). Sanity bug found and fixed along the way: weight-tied
+output head with default `nn.Embedding` init makes initial logits have magnitude ~√d_model, so
+the loss starts at ~56 not ~6.93. GPT-style `std=0.02` init on the embedding fixes it. Recorded
+in `src/decoder_swap/translator.py` next to the init.
+
+**Verdict: green-light the full translator build.** AR-on-DAC-tokens is viable with a small
+model in minutes; a larger model with longer training is the natural next step.
+
+Artefacts: `results/m6_smoke/{smoke_loss.png, smoke_result.json, smoke_losses.json}`.
+
+### Phased plan for the full translator (issue #6)
+
+- **Phase A — scaled-up LM.** Same flat-interleaved AR transformer, but ~10–30 M params
+  (d_model=512, 6–8 layers, 8 heads) trained for ~5–10 k steps on the same Vytis token cache.
+  Produces a model that knows what techno token sequences look like. Pure unconditional LM —
+  no architectural commitment to a conditioning recipe yet.
+- **Phase B — prefix-conditioned sampling.** Zero new architecture. At inference: encode the
+  input audio (country / rock) → take its tokens as the prefix → AR-sample a continuation under
+  the techno LM → decode the sampled continuation with D1 → wav. This is the cleanest first
+  attempt at "play X in techno sounds" while keeping `T_in` and `T_out` both observable.
+- **Phase C — evaluate.** Re-use the M4 metrics suite. Also add a token-diff view (per-codebook
+  change rate between `T_in` and `T_out`). Listen, write up.
+
+If Phase B's prefix conditioning doesn't give enough steering control, cross-attention or
+inpainting variants are the natural follow-ups — but the smoke result says the cheap version
+is worth trying first.
+
 ## What to try next
 
 ### The actual goal (clarified mid-session)
@@ -399,18 +450,25 @@ src/decoder_swap/
   run_experiment.py # M4 D1/D2 comparison (chunked)
   measure.py        # §3 metrics + plain-English verdict block
   plot.py           # M5 comparison + loss-curve figures
+  translator.py     # M6.0+ small flat-AR transformer over DAC tokens
+  train_translator.py  # M6.A trainer — Phase-A LM with periodic ckpt + SIGINT-safe save
 scripts/
-  00_inspect_codec.py    # M0
-  01_sanity_roundtrip.py # M1
-  02_freeze_check.py     # M2 (incl. negative test)
-  03_train_d2.py         # M3 — overridable steps/lr/batch via CLI
-  03b_diag_nan.py        # the script that found the MPS NaN bugs (kept for posterity)
-  04_compare.py          # M4 — overridable input + out-dir
-  05_plots.py            # M5
+  00_inspect_codec.py            # M0
+  01_sanity_roundtrip.py         # M1
+  02_freeze_check.py             # M2 (incl. negative test)
+  03_train_d2.py                 # M3 — overridable steps/lr/batch via CLI
+  03b_diag_nan.py                # the script that found the MPS NaN bugs (kept for posterity)
+  04_compare.py                  # M4 — overridable input + out-dir
+  05_plots.py                    # M5
+  07_cache_translator_tokens.py  # M6.0 step 1 — encode CORPUS_NEW → data/tokens_dac/
+  08_train_translator_smoke.py   # M6.0 step 2 — tiny AR transformer feasibility smoke
+  09_train_translator.py         # M6.A — scaled-up LM, configurable model + steps
 results/
   m1_sanity/             # round-trip wavs
   m3_training_loss.png
   m4_compare/            # input.wav, S1.wav, S2.wav, metrics.json, comparison.png (country)
   m4_compare_rock/       # same, for AC/DC
+  m6_smoke/              # smoke_loss.png + JSONs for the M6.0 feasibility result
 data/                    # gitignored — corpus paths in config.yaml, checkpoints, intermediates
+  tokens_dac/            # gitignored — cached DAC token streams per CORPUS_NEW track
 ```

@@ -1,0 +1,23 @@
+{
+  "steps": 300,
+  "batch_size": 8,
+  "window_seconds": 3.0,
+  "window_frames": 258,
+  "flat_len": 2322,
+  "n_params": 3421696,
+  "elapsed_seconds": 253.25950694084167,
+  "loss_first_window": 5.369673252105713,
+  "loss_last_window": 4.669293212890625,
+  "improvement_pct": 13.043252472400152,
+  "random_baseline": 6.931471805599453,
+  "verdict": "PASS: meaningful descent \u2014 AR-on-DAC-tokens is viable, proceed to full translator",
+  "config": {
+    "vocab_size": 1024,
+    "d_model": 256,
+    "n_layers": 4,
+    "n_heads": 4,
+    "d_ff": 1024,
+    "dropout": 0.0,
+    "max_seq_len": 2338
+  }
+}
