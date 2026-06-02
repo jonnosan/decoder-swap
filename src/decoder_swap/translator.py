@@ -63,12 +63,31 @@ class FlatARTransformer(nn.Module):
         self.encoder = nn.TransformerEncoder(layer, num_layers=cfg.n_layers)
         self.norm = nn.LayerNorm(cfg.d_model)
         # Weight-tied output head: reuse self.embed.weight as the classifier matrix.
-        # GPT-style init — keeps logits' variance ≈ O(1) at init so the initial cross-entropy
-        # sits near ln(vocab) (the random-uniform baseline) instead of blowing up because a
-        # LayerNormed hidden state dotted with N(0,1)-scaled embedding weights gives logits
-        # of magnitude ~sqrt(d_model). With std=0.02, init logits ≈ N(0, 0.02·sqrt(d)), and
-        # the loss starts near ln(vocab) as expected.
+        # Embedding init: GPT-style std=0.02. Without this, the LayerNormed hidden state
+        # dotted with N(0,1)-scaled embedding weights produces logits of magnitude
+        # ~sqrt(d_model), so the M6.0 smoke saw initial loss ~56 instead of ~ln(vocab)=6.93.
+        # With std=0.02, initial logits stay O(1) and loss starts at the random baseline.
         nn.init.normal_(self.embed.weight, mean=0.0, std=0.02)
+
+        # Depth-aware residual scaling (GPT-2 style). The output of each pre-norm block
+        # adds to the residual stream; if every layer contributes with O(1) variance, the
+        # stream's variance grows linearly with depth and the loss landscape at init goes
+        # flat — exactly the pathology we saw in M6.A (11 M-param Phase A model glued at
+        # random baseline for 5000 steps; issue #9). Scaling the *output* projection of
+        # each block (MHA's out_proj + FFN's second linear) by 1/sqrt(2 * n_layers) keeps
+        # each block's contribution to the residual stream O(1/sqrt(n_layers)), so the
+        # sum across n_layers has O(1) variance regardless of depth.
+        residual_std = 0.02 / math.sqrt(2 * cfg.n_layers)
+        for block in self.encoder.layers:
+            # `block` is a TransformerEncoderLayer. The two residual-output projections are:
+            #   block.self_attn.out_proj — MultiheadAttention's output projection
+            #   block.linear2            — the second linear in the FFN
+            nn.init.normal_(block.self_attn.out_proj.weight, mean=0.0, std=residual_std)
+            if block.self_attn.out_proj.bias is not None:
+                nn.init.zeros_(block.self_attn.out_proj.bias)
+            nn.init.normal_(block.linear2.weight, mean=0.0, std=residual_std)
+            if block.linear2.bias is not None:
+                nn.init.zeros_(block.linear2.bias)
 
     def num_parameters(self) -> int:
         return sum(p.numel() for p in self.parameters())
@@ -77,7 +96,14 @@ class FlatARTransformer(nn.Module):
         B, L = x.shape
         if L > self.cfg.max_seq_len:
             raise ValueError(f"sequence length {L} exceeds max_seq_len {self.cfg.max_seq_len}")
-        h = self.embed(x) + self.pos_enc[:L].unsqueeze(0)
+        # Scale the embedded signal by sqrt(d_model) before adding positional info.
+        # With embed.weight ~ N(0, 0.02), un-scaled embed(x) has per-element magnitude
+        # ~0.02 while the sinusoidal positional encoding has magnitude ~1 — so position
+        # dominates and the model can't learn token-conditional predictions (the M6.A
+        # regression in issue #9). Standard transformer practice (Vaswani et al. 2017
+        # §3.4) scales embeddings by sqrt(d_model) so token and position contribute on
+        # comparable scales. At d_model=384 this multiplies embed(x) by ~19.6.
+        h = self.embed(x) * math.sqrt(self.cfg.d_model) + self.pos_enc[:L].unsqueeze(0)
         causal = nn.Transformer.generate_square_subsequent_mask(L, device=x.device)
         h = self.encoder(h, mask=causal, is_causal=True)
         h = self.norm(h)
