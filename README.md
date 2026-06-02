@@ -289,7 +289,7 @@ log-mel energy distribution while sounding dramatically more artificial — so D
 look numerically closer in mel space than D1's while being audibly further from real audio.
 Any future re-voicing experiment should treat mel-dB as ONE signal and combine it with chroma
 and adversarial-discriminator-style realism scores. Tracked as
-[issue #6](https://github.com/jonnosan/decoder-swap/issues/6) (filed during wrap-up).
+[issue #7](https://github.com/jonnosan/decoder-swap/issues/7).
 
 ### What this tells us about the mechanism (refined)
 
