@@ -41,7 +41,11 @@ single-element drift — see `scripts/02_freeze_check.py`.
 
 ## Status
 
-Decoder-swap milestones complete (2026-06-02). Token-translator follow-up (issue #6) in progress:
+Decoder-swap milestones complete (2026-06-02). Project goal **pivoted** away from
+country→techno translation toward **jtxtok-conditioned techno generation** (see
+[docs/prompts/](docs/prompts/) and issue #8). The pivot kept the M6 substrate work
+(unconditional techno LM) and replaced the M6 prefix-conditioning idea with M7 jtxtok-
+conditioned generation.
 
 - [x] **M0** — skeleton + codec verification
 - [x] **M1** — sanity round-trip
@@ -49,10 +53,18 @@ Decoder-swap milestones complete (2026-06-02). Token-translator follow-up (issue
 - [x] **M3** — decoder fine-tune on CORPUS_NEW
 - [x] **M4** — comparison (S1 vs S2)
 - [x] **M5** — plots + writeup
-- [x] **M6.0** — token-translator feasibility smoke (see below) — **PASS**, build green-lit
-- [ ] **M6.A** — scaled-up techno LM (issue #6 Phase A)
-- [ ] **M6.B** — prefix-conditioned sampling (issue #6 Phase B)
-- [ ] **M6.C** — evaluation vs decoder-swap baseline (issue #6 Phase C)
+- [x] **M6.0** — token-translator feasibility smoke — **PASS**, AR-on-DAC-tokens viable
+- [ ] **M6.A** — scaled-up unconditional techno LM (substrate for M7)
+- [ ] **M7.A** — cross-attention conditioning surgery on the base model (PROMPT_3 Part A)
+- [ ] **M7.B** — training: corpus pairs (no MT) + synthetic MT sweeps + dropouts (PROMPT_3 Part B)
+- [ ] **M7.C** — generation: voice filter × CFG scale + BOS / from-scratch (PROMPT_3 Parts C+D)
+
+External prerequisites for M7 (separate components, not built in this repo):
+- `audio→jtxtok` extractor (PROMPT_2) — training-time conditioning producer.
+- `jtx→jtxtok` emitter (PROMPT_1) — inference-time conditioning producer + synthetic
+  drum-sweep generator for MT supervision.
+
+The shared vocabulary contract lives in [docs/JTXTOK_SPEC.md](docs/JTXTOK_SPEC.md).
 
 ## Setup
 
@@ -369,67 +381,69 @@ model in minutes; a larger model with longer training is the natural next step.
 
 Artefacts: `results/m6_smoke/{smoke_loss.png, smoke_result.json, smoke_losses.json}`.
 
-### Phased plan for the full translator (issue #6)
+### What this validated, what it didn't
 
-- **Phase A — scaled-up LM.** Same flat-interleaved AR transformer, but ~10–30 M params
-  (d_model=512, 6–8 layers, 8 heads) trained for ~5–10 k steps on the same Vytis token cache.
-  Produces a model that knows what techno token sequences look like. Pure unconditional LM —
-  no architectural commitment to a conditioning recipe yet.
-- **Phase B — prefix-conditioned sampling.** Zero new architecture. At inference: encode the
-  input audio (country / rock) → take its tokens as the prefix → AR-sample a continuation under
-  the techno LM → decode the sampled continuation with D1 → wav. This is the cleanest first
-  attempt at "play X in techno sounds" while keeping `T_in` and `T_out` both observable.
-- **Phase C — evaluate.** Re-use the M4 metrics suite. Also add a token-diff view (per-codebook
-  change rate between `T_in` and `T_out`). Listen, write up.
+The smoke confirms the load-bearing premise of the original issue #6 "token translator" plan
+(AR-on-DAC-tokens is viable). It does NOT validate the *prefix-conditioning at inference*
+recipe — and that recipe has been retired as of the 2026-06-02 pivot. See the next section.
 
-If Phase B's prefix conditioning doesn't give enough steering control, cross-attention or
-inpainting variants are the natural follow-ups — but the smoke result says the cheap version
-is worth trying first.
+## Pivot (2026-06-02): from translation to jtxtok-conditioned generation
 
-## What to try next
+The previous goal — *"play a country song in techno sounds while keeping the intermediate
+tokens observable"* — has been retired. M0–M5 already showed the structural ceiling: a frozen
+encoder bakes the input audio into its tokens too completely for a downstream model (re-voiced
+decoder or prefix-conditioned LM) to perform real genre transplant. Token translation via
+prefix-conditioned sampling would land somewhere between "ring-mod" (decoder-swap) and "free
+techno" — neither what was wanted.
 
-### The actual goal (clarified mid-session)
+**New goal:** generate new techno that is either (a) entirely from scratch or (b) structurally
+conditioned by a `jtxtok` file. The structural skeleton (drums, coarse bass, coarse key,
+micro-timing) is supplied at training time by an `audio→jtxtok` extractor over the corpus, and
+at inference time by `jtx` (or by an extractor-derived skeleton re-rendered through the model).
 
-> "I want to find a way that lets us 'play a country song in techno sounds' in a way that the
-> intermediate processing (i.e. tokens from encoder to decoder) is observable."
+The structural representation is **symbolic** (a small fixed vocabulary, ~50 tokens; see
+[docs/JTXTOK_SPEC.md](docs/JTXTOK_SPEC.md)) rather than raw audio tokens. That gives:
+- **Producer-agnostic conditioning.** The same model accepts jtxtok from the extractor
+  (corpus re-render) or from jtx (live composition) or none at all (from-scratch).
+- **Factorised voice roles.** Drums / bass / key are separately addressable, so generation
+  can be driven by drums only, drums+bass, or full skeleton — orthogonal to a CFG-scale dial.
+- **One micro-timing teacher.** Corpus pairs never carry `MT_*`; synthetic jtx→fluidsynth
+  drum-only sweeps always do. The model learns "MT absent ⇒ play straight; MT present ⇒
+  honour offset" via independent CFG and MT dropout (both non-negotiable).
 
-Both halves of that constraint matter. End-to-end models like MusicGen / Stable Audio / Riffusion
-could produce *something that sounds like techno performing the song*, but they don't preserve
-the clean `audio → tokens → audio` shape we had — MusicGen-Melody uses chromagrams not tokens as
-its structural conditioning, so the "what the system thinks this song is" representation gets lost.
+The decoder-swap repo owns **PROMPT_3** of the three-component build:
+[docs/prompts/PROMPT_3_decoder_swap.md](docs/prompts/PROMPT_3_decoder_swap.md), tracked in
+[issue #8](https://github.com/jonnosan/decoder-swap/issues/8). PROMPT_1 (jtx emitter) and
+PROMPT_2 (extractor) are sibling components in separate repos — referenced in
+[docs/prompts/](docs/prompts/) for context. Build order is PROMPT_2 → PROMPT_1 → PROMPT_3,
+with the extractor's standalone validation as the gate before this repo's M7 work begins.
 
-### Recommended direction: token translation
+### What of the existing work survives the pivot
 
-The decoder-swap design has a hard ceiling for genre transplant — the encoder bakes the input
-into the tokens too completely, and re-training the decoder can only impose a spectral fingerprint
-on top of that. The natural extension that **keeps observability AND can achieve real genre
-transplant** is to add a learned **token translator** in the middle:
+- **All of M0–M5** (decoder-swap experiment): unchanged, retains its standalone scientific
+  value as a clean partial confirmation of structure-lives-in-T, plus the ring-mod finding.
+- **M6.0 smoke + M6.A scaled-up LM**: still the substrate. The unconditional techno LM is the
+  base model that M7's conditioning surgery extends — PROMPT_3 explicitly does NOT require
+  restarting it.
+- **Cached DAC tokens** (`data/tokens_dac/`): reused as the M7 target side.
+- **Flat-interleaved RVQ target layout**: keep as-is. PROMPT_3 Part A leaves the target-side
+  layout as decoder-swap's own choice, independent of jtxtok conditioning.
 
-```
-country audio → ENCODER (frozen) → T_country (observable)
-                                   ↓
-                            TRANSLATOR (the new piece)
-                                   ↓
-                                T_techno (observable — directly comparable to T_country!)
-                                   ↓
-                                DECODER (original D1) → techno-style audio
-```
+### What gets retired
 
-Both `T_country` and `T_techno` are inspectable. You can ask which codebook entries the
-translator changed, whether rhythm stayed, whether harmony shifted — *the experiment becomes
-more interpretable, not less*.
+- The "token translator with prefix-conditioned sampling" plan from the original issue #6:
+  superseded by issue #8 (jtxtok cross-attention conditioning).
+- The country→techno translation goal: superseded by the from-scratch + jtxtok-conditioned
+  generation goal.
+- Adversarial decoder epic ([#3](https://github.com/jonnosan/decoder-swap/issues/3)): remains
+  deprioritised. The pivot doesn't revive it.
 
-A first-attempt minimum-viable version is a small autoregressive transformer (~10-30 M params)
-trained on the technical corpus's tokens, then used at inference with input tokens as
-cross-attention context to steer generation. Tracked as
-[issue #6](https://github.com/jonnosan/decoder-swap/issues/6) — the new top-priority next step.
+### Side experiments that still apply to the new model
 
-### Deprioritised: adversarial decoder ([epic #3](https://github.com/jonnosan/decoder-swap/issues/3))
-
-Originally the next step after M5. Still scientifically interesting — would *reduce* the ring-mod
-fingerprint by training the decoder to fool a discriminator. But: it can't achieve real genre
-transplant either, because the structural ceiling is the same. Better as a comparison data point
-*after* the translator path produces results, not as the primary next step.
+- [#4](https://github.com/jonnosan/decoder-swap/issues/4) narrow-corpus ablation,
+- [#5](https://github.com/jonnosan/decoder-swap/issues/5) lower-bitrate codec variants,
+- [#7](https://github.com/jonnosan/decoder-swap/issues/7) metric set augmentation (more relevant
+  than before — generation evaluation needs realism signals beyond mel-dB).
 
 ## Codec licence
 
@@ -471,4 +485,7 @@ results/
   m6_smoke/              # smoke_loss.png + JSONs for the M6.0 feasibility result
 data/                    # gitignored — corpus paths in config.yaml, checkpoints, intermediates
   tokens_dac/            # gitignored — cached DAC token streams per CORPUS_NEW track
+docs/
+  JTXTOK_SPEC.md         # v1 token-format contract (canonical: jamtronix repo)
+  prompts/               # the three Claude Code build prompts (PROMPT_1, PROMPT_2, PROMPT_3)
 ```

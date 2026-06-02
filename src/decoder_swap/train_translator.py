@@ -38,6 +38,7 @@ class TranslatorTrainConfig:
     lr: float = 3e-4
     grad_clip: float = 1.0
     weight_decay: float = 0.01
+    warmup_steps: int = 0     # linear lr ramp 0 -> lr over this many steps; 0 disables warmup
 
     # Logging / checkpointing
     log_every: int = 20
@@ -153,9 +154,19 @@ def train_translator(
         weight_decay=cfg.weight_decay,
     )
 
+    def lr_for_step(step: int) -> float:
+        """Linear warmup over cfg.warmup_steps, then constant. Step is 1-indexed."""
+        if cfg.warmup_steps <= 0:
+            return cfg.lr
+        if step >= cfg.warmup_steps:
+            return cfg.lr
+        return cfg.lr * (step / cfg.warmup_steps)
+
     random_baseline = math.log(cfg.vocab_size)
     print(f"  window: {cfg.window_seconds:.1f} s = {window_frames} frames = {flat_len} flat tokens")
     print(f"  random baseline (uniform): {random_baseline:.4f}")
+    if cfg.warmup_steps > 0:
+        print(f"  warmup: linear lr ramp 0 -> {cfg.lr} over first {cfg.warmup_steps} steps")
 
     ckpt_dir = Path(cfg.ckpt_dir)
     ckpt_dir.mkdir(parents=True, exist_ok=True)
@@ -188,6 +199,10 @@ def train_translator(
                 loss.backward()
                 if cfg.grad_clip > 0:
                     torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=cfg.grad_clip)
+                # Apply warmup lr schedule by mutating the optimizer's lr in-place per step.
+                cur_lr = lr_for_step(step)
+                for pg in optim.param_groups:
+                    pg["lr"] = cur_lr
                 optim.step()
 
             completed_step = step

@@ -40,6 +40,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--lr", type=float, default=3e-4)
     ap.add_argument("--grad-clip", type=float, default=1.0)
     ap.add_argument("--weight-decay", type=float, default=0.01)
+    ap.add_argument("--warmup-steps", type=int, default=0,
+                    help="linear lr warmup over this many steps (0 = disabled)")
     ap.add_argument("--log-every", type=int, default=20)
     ap.add_argument("--ckpt-every", type=int, default=500)
     ap.add_argument("--seed", type=int, default=0)
@@ -81,6 +83,7 @@ def main() -> int:
         lr=args.lr,
         grad_clip=args.grad_clip,
         weight_decay=args.weight_decay,
+        warmup_steps=args.warmup_steps,
         log_every=args.log_every,
         ckpt_every=args.ckpt_every,
         ckpt_dir=str(REPO_ROOT / args.ckpt_dir),
