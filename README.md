@@ -192,19 +192,30 @@ palette transfer*, not *musical re-composition*. The full DAC training recipe ad
 discriminators specifically to push past this; they're what convinces the decoder to produce
 *realistic-sounding* outputs rather than mel-bin-matching outputs.
 
-### Caveat — the structure-preservation half may have been on easy ground
+### Caveat — most of the hypothesis was on easy ground
 
-The token grid in this codec runs at **86.13 fps × 9 codebooks × 1024 entries × 10 bits =
-7.75 kbps** at a 86 Hz frame rate. 86 Hz is far above what's needed for any structural feature
-of music (rhythmic groove perceptible to ~5 Hz, transients to ~50 Hz, pitch to ~20 Hz), and 9
-codebooks of 1024 entries is information-dense. Any reasonable decoder forced to respect that
-grid will probably preserve structure — so the clean confirmation of clauses 1 and 2 isn't as
-surprising as it might first look. Whether structure preservation still holds at DAC's
-lower-bitrate variants (24 kHz @ 8 kbps, 16 kHz @ 6 kbps) is a separate question
-([issue #5](https://github.com/jonnosan/decoder-swap/issues/5)).
+The token grid runs at **86.13 fps × 9 codebooks × 10 bits = 7.75 kbps**, with **90 bits per
+~11.6 ms frame** to specify "what spectrum is present right now." A learned codebook with 90
+bits/frame doesn't just specify envelope and timing — it specifies pitch class, rough chord
+identity, and timbral category. Mapping that to the four hypothesis clauses:
 
-The actual hard test of the hypothesis was always the **realisation** half — and that's where
-the partial confirmation + ring-mod nuance lives.
+| hypothesis clause | what actually carries it | was the decoder really tested? |
+|---|---|---|
+| 1. onset timing preserved | 86 Hz frame rate (far above need ≈ 50 Hz) | **no, given by token rate** |
+| 2. RMS envelope preserved | per-frame energy info | **no, given by token rate** |
+| 4. pitch preserved | per-frame 90 bits of spectral info | **largely given by token rate** |
+| 3. realisation changes | decoder synthesis choices | **yes — this was the actual test** |
+
+The clean confirmations of clauses 1, 2, and 4 are therefore weaker evidence for the
+"structure-lives-in-T" hypothesis than they look — the token grid pretty much *guarantees* those
+findings regardless of what the decoder does. The one genuine test was clause 3, the realisation
+change, and that's where the partial confirmation + the ring-modulator perceptual signature
+sits.
+
+To actually test clauses 1, 2, and 4 you'd need a token grid sparse enough that preservation
+isn't automatic — DAC's lower-bitrate variants (24 kHz @ 8 kbps, 16 kHz @ 6 kbps with 12 narrow
+codebooks) are the natural place to look. Tracked as
+[issue #5](https://github.com/jonnosan/decoder-swap/issues/5).
 
 ### Verdict
 
