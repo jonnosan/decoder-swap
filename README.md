@@ -192,6 +192,20 @@ palette transfer*, not *musical re-composition*. The full DAC training recipe ad
 discriminators specifically to push past this; they're what convinces the decoder to produce
 *realistic-sounding* outputs rather than mel-bin-matching outputs.
 
+### Caveat — the structure-preservation half may have been on easy ground
+
+The token grid in this codec runs at **86.13 fps × 9 codebooks × 1024 entries × 10 bits =
+7.75 kbps** at a 86 Hz frame rate. 86 Hz is far above what's needed for any structural feature
+of music (rhythmic groove perceptible to ~5 Hz, transients to ~50 Hz, pitch to ~20 Hz), and 9
+codebooks of 1024 entries is information-dense. Any reasonable decoder forced to respect that
+grid will probably preserve structure — so the clean confirmation of clauses 1 and 2 isn't as
+surprising as it might first look. Whether structure preservation still holds at DAC's
+lower-bitrate variants (24 kHz @ 8 kbps, 16 kHz @ 6 kbps) is a separate question
+([issue #5](https://github.com/jonnosan/decoder-swap/issues/5)).
+
+The actual hard test of the hypothesis was always the **realisation** half — and that's where
+the partial confirmation + ring-mod nuance lives.
+
 ### Verdict
 
 The hypothesis is **partially supported**:
