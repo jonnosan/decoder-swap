@@ -64,6 +64,7 @@ def main() -> int:
         codec_model_path=settings.codec_model_path,
         device=device,
         d2_ckpt_path=d2_path,
+        num_quantizers=settings.codec_num_quantizers,
     )
     print("invariant check passed: D1 and D2 share token convention + byte-identical codebooks")
     print(f"D2 trained for {d2_meta.get('steps','?')} steps "

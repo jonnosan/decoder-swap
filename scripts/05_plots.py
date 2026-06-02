@@ -18,8 +18,9 @@ from decoder_swap.plot import comparison_figure, training_loss_figure  # noqa: E
 
 def main() -> int:
     pairs = [
-        (REPO_ROOT / "results" / "m4_compare", "Blue Kentucky Girl (country) — D1 vs D2"),
-        (REPO_ROOT / "results" / "m4_compare_rock", "AC/DC — Back In Black (rock) — D1 vs D2"),
+        (REPO_ROOT / "results" / "m4_compare", "Blue Kentucky Girl (country) — DAC D1 vs D2"),
+        (REPO_ROOT / "results" / "m4_compare_rock", "AC/DC — Back In Black (rock) — DAC D1 vs D2"),
+        (REPO_ROOT / "results" / "m4_compare_mimi", "Blue Kentucky Girl — Mimi D1 vs D2 (1.1 kbps, 12.5 fps)"),
     ]
     for d, title in pairs:
         s1, sr1 = sf.read(d / "S1.wav")

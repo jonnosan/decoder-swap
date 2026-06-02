@@ -1,0 +1,116 @@
+{
+  "sample_rate": 24000,
+  "duration_seconds": 205.07866666666666,
+  "structure_preservation": {
+    "onset_agreement_s1_vs_s2": {
+      "n_onsets_s1": 509,
+      "n_onsets_s2": 489,
+      "n_matched_within_50ms": 405,
+      "mean_abs_diff_ms": 5.688888888888944,
+      "precision": 0.8282208588957055,
+      "recall": 0.7956777996070727,
+      "f1": 0.8116232464929861,
+      "tolerance_ms": 50.0
+    },
+    "rms_envelope_correlation_s1_vs_s2": {
+      "correlation": 0.9717192258038125,
+      "n_frames": 9614,
+      "s1_mean_rms": 0.010036821477115154,
+      "s2_mean_rms": 0.010955466888844967
+    },
+    "tempo_agreement_s1_vs_s2": {
+      "tempo_s1_bpm": 108.17307692307692,
+      "tempo_s2_bpm": 108.17307692307692,
+      "abs_delta_bpm": 0.0
+    }
+  },
+  "realisation_change": {
+    "mfcc_distance_s1_vs_s2": 7.2334771156311035,
+    "mel_db_distance_s1_vs_s2": 4.187642574310303,
+    "spectral_centroid_summary_s1_vs_s2": {
+      "correlation": 0.9272410272809067,
+      "s1_mean_hz": 1972.0875889068868,
+      "s2_mean_hz": 2079.3721783740166,
+      "s1_std_hz": 385.1727950106731,
+      "s2_std_hz": 455.8486068644272
+    },
+    "chroma_cosine_similarity_s1_vs_s2": 0.8967376947402954
+  },
+  "forgetting_probe": {
+    "mel_db_distance_input_vs_s1": 5.190218448638916,
+    "mel_db_distance_input_vs_s2": 4.016972541809082,
+    "mfcc_distance_input_vs_s1": 8.020910263061523,
+    "mfcc_distance_input_vs_s2": 6.88108491897583
+  },
+  "meta": {
+    "input_path": "/Users/jonno/src/decoder_swap/results/m1_sanity/Blue Kentucky Girl.mp3",
+    "tokens_shape": [
+      1,
+      8,
+      2564
+    ],
+    "d2_train": {
+      "decoder_weight_norm_removed": true,
+      "train_config": {
+        "sample_rate": 24000,
+        "batch_size": 4,
+        "segment_seconds": 2.0,
+        "lr": 0.0001,
+        "steps": 2500,
+        "log_every": 10,
+        "codebook_check_every": 25,
+        "ckpt_every": 200,
+        "waveform_weight": 1.0,
+        "grad_clip": 5.0,
+        "ckpt_dir": "/Users/jonno/src/decoder_swap/data/checkpoints",
+        "seed": 0
+      },
+      "convention": {
+        "sample_rate": 24000,
+        "frame_rate": 12.5,
+        "hop_length": 1920,
+        "n_codebooks": 8,
+        "codebook_size": 2048,
+        "latent_dim": 512
+      },
+      "codebook_fingerprints_start": [
+        "abcdc82af4724b10d366c4ff27a4d80ad4c4ee77794229f83524c57928cc6d70",
+        "8ff012f116ad5f9dc332365e736965af1617d9564e77bb5cfca8aa4bf5d931e1",
+        "9401032927bc21b315484a48a1e12cd98ed975cd59487b9bd6d72e0651638ef9",
+        "ec1e99e3a9ebc3aec6146bf45465e6d28df08b533aa0b789382531f9bb4cc9b4",
+        "9fd7d0f9cfb09ea1757e20413e8f2756ae3e7a8b79ae0d1c10347ab96150cfb9",
+        "a1fa531833e78d15ab91f31018b9863f1a23147de954398de6dd1ffdaba6efef",
+        "c60dbcf29cf5a84589d17f20c120a16718dcc4b240d003b4d4cb313ea1db3f7c",
+        "9729e9ac4ddd6ec8fb44ad7859b1a49a6f141f8f0b3cfabd25bb4150ccaf0b61",
+        "eaed8e3dc013c2194933018a985f13f8f445d9c373e00f66e2cf2526f6043ea0",
+        "b19c3a336faf4ad3d21071cccd909e5b3e3430c177512a11fba16543f919c58d",
+        "8a0c53c8aa19a6ad1d805b54cdd08a2ebd8e09a4ba5593361a05c033672cac35",
+        "36e6f24153a2d0cbf503be63a72e5bae6991571bbe85a94dbcd04ac2c36ec2da",
+        "349e298ea27792b8a9017866d5e6e73b7374c7d50f18de9b676f18a61db32e56",
+        "3c00b170865ab3d655893ec85aa9dbcbe755c319174aea60bceac6c785812d04",
+        "8a2edf53137d6213221ab7c4543b2794c8a52db3e99dbd9f3609aa77cddc5520",
+        "23e2e96cdacf3b3a180a3777d7ff1199f3c7eb46c6fba9355da7e6ae1eec80b7",
+        "3be0bae07cd998f47a58b2f656e55b2936451344797385edccc354ed2b667503",
+        "50d65f1fbd8525287f5c0ae96501b6523137b198698c4dd2206ab569a32a32f1",
+        "59cbdafc5dd0c0d404d92fd1d6fd8ba1147f810f8927843d9e153ba7482296e2",
+        "d2aaf2930aca3f6d1899e671e6b86467d47c99e64dcbddc22673e24a1dc9868d",
+        "a04db256bf00709686769620ba3ef971952f3fac6f12816324a654c40b6ecfe1",
+        "efb1395b2de462e8c811d849239944a31f0097d9657e8b52431796c63d37b85e",
+        "b334a07c7b6e816205d1c9b456b25472add61787bf9cfa743520c466a405ecdb",
+        "ee800f34e039378e50e6014a61a908b509b6aedcba73deef6fd280f131b4563b",
+        "8f13e64bdb171e425fe92cbfe4c19597c7e763a9c8861755cd5374cf7bf2f455",
+        "ba17f634f8820712a25a7b431e6a2bb7943911a8baa3d8199ec208e848ff3f3d",
+        "8fffbc905abd531ec0bd1d740dc30a7163dc0e2164ffa190aec7ba1382df9247",
+        "909ce7115b9dc44ac1aa2f6e48193f83e5a620d8018db7a9f8b8b6dba1fe8149",
+        "e1606920a3fbb48540ccfbcdc34ae01453115639b61dd89d498cadd46a180672",
+        "f1b2d9347d50f1d65dacc7d26c9fb1406dd2398743717a35efd199f4e0123833",
+        "b82d4ec8eea2bef058132f4a7d246885be099059f223282ca36f826c8bf386c8",
+        "b126b5be86aac260918d146fc68adb908f7031dbbc240057331e364676d09037"
+      ],
+      "loss_first_window": 1.074785542488098,
+      "loss_last_window": 0.7506826460361481,
+      "steps": 2500,
+      "elapsed_seconds": 558.0030467510223
+    }
+  }
+}

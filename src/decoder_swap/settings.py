@@ -33,6 +33,12 @@ class Settings:
         return self.raw["codec"].get("model_path")
 
     @property
+    def codec_num_quantizers(self) -> int | None:
+        """Only used by Mimi (defaults to 8 inside the loader)."""
+        v = self.raw["codec"].get("num_quantizers")
+        return int(v) if v is not None else None
+
+    @property
     def device(self) -> str:
         return self.raw.get("device", "auto")
 

@@ -72,7 +72,12 @@ def main() -> int:
     snapshot = snapshot_codebook_fingerprints(codec_a)
     with torch.no_grad():
         # Even the tiniest perturbation must be detected. Pick a single float, bump it by 1e-6.
-        cb0 = codec_a.quantizer.quantizers[0].codebook.weight
+        if codec_a.name == "dac":
+            cb0 = codec_a.quantizer.quantizers[0].codebook.weight
+        elif codec_a.name == "mimi":
+            cb0 = codec_a.quantizer.semantic_residual_vector_quantizer.layers[0].codebook.embed
+        else:
+            raise NotImplementedError(codec_a.name)
         before = cb0[0, 0].item()
         cb0[0, 0] = cb0[0, 0] + 1e-6
         after = cb0[0, 0].item()

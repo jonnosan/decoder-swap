@@ -13,7 +13,7 @@ import librosa
 import numpy as np
 import torch
 
-from .codec_io import Codec, load_codec
+from .codec_io import Codec, decode_from_codes, encode_to_codes, load_codec
 from .freeze import remove_weight_norm_recursive
 from .invariants import assert_codec_invariants_match
 from .train_decoder import load_d2_into
@@ -43,6 +43,7 @@ def build_d1_d2(
     codec_model_path: str | None,
     device: str,
     d2_ckpt_path: str | Path,
+    num_quantizers: int | None = None,
 ) -> tuple[Codec, Codec, dict]:
     """Load two independent codecs. D1 is the pretrained baseline (decoder untouched). D2 has the
     same pretrained encoder+quantizer, but its decoder is replaced with the fine-tuned D2 weights.
@@ -50,8 +51,12 @@ def build_d1_d2(
     Returns (codec_d1, codec_d2, d2_metadata). Calls the pairwise invariant check before returning;
     if codebooks aren't byte-identical the function raises.
     """
-    codec_d1 = load_codec(codec_name, codec_model_type, codec_model_tag, codec_model_path, device)
-    codec_d2 = load_codec(codec_name, codec_model_type, codec_model_tag, codec_model_path, device)
+    codec_d1 = load_codec(
+        codec_name, codec_model_type, codec_model_tag, codec_model_path, device, num_quantizers
+    )
+    codec_d2 = load_codec(
+        codec_name, codec_model_type, codec_model_tag, codec_model_path, device, num_quantizers
+    )
 
     # D2 was trained with weight_norm removed from the decoder (MPS-safe backward — see freeze.py).
     # The saved state_dict therefore has plain `weight` keys not `weight_g`/`weight_v`. We must
@@ -113,17 +118,16 @@ def run_experiment(
         x = torch.from_numpy(chunk_np)[None, None, :].to(device)
 
         with torch.no_grad():
-            x_pre = codec_d1.model.preprocess(x, sr)
-            z, codes, _latents, _cm, _cb = codec_d1.model.encode(x_pre)
-            s1_t = codec_d1.model.decode(z)
-            s2_t = codec_d2.model.decode(z)
+            codes = encode_to_codes(codec_d1, x)
+            s1_t = decode_from_codes(codec_d1, codes)
+            s2_t = decode_from_codes(codec_d2, codes)
 
             codes_chunks.append(codes.detach().cpu())
             s1_chunks.append(s1_t.squeeze().detach().cpu().float().numpy()[:chunk_len])
             s2_chunks.append(s2_t.squeeze().detach().cpu().float().numpy()[:chunk_len])
 
         # Release MPS tensors before the next chunk's allocations.
-        del x, x_pre, z, codes, s1_t, s2_t
+        del x, codes, s1_t, s2_t
         _mps_empty_cache()
         print(f"  chunk {ci+1}/{n_chunks}: samples [{start}:{end}]", flush=True)
 

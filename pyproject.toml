@@ -13,6 +13,7 @@ dependencies = [
     "matplotlib>=3.8",
     "pyyaml>=6.0",
     "tqdm>=4.66",
+    "transformers>=4.45",                 # for Mimi codec (kyutai/mimi)
 ]
 
 [build-system]

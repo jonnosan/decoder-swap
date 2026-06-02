@@ -21,7 +21,7 @@ from pathlib import Path
 
 import torch
 
-from .codec_io import Codec
+from .codec_io import Codec, decode_from_codes, encode_to_codes
 from .dataset import CorpusDataset
 from .freeze import freeze_for_decoder_training, remove_weight_norm_recursive
 from .invariants import assert_codebook_unchanged, snapshot_codebook_fingerprints
@@ -104,13 +104,15 @@ def train_d2(codec: Codec, corpus: CorpusDataset, cfg: TrainConfig) -> TrainResu
 
     # Freeze front-end, double-check counts.
     freeze_for_decoder_training(codec)
-    # Collapse weight_norm parametrizations in the decoder so its backward path is
-    # well-behaved on MPS (see freeze.remove_weight_norm_recursive docstring).
     n_removed = remove_weight_norm_recursive(codec.decoder)
     print(f"  removed weight_norm from {n_removed} decoder submodules (MPS-safe backward)")
-    codec.encoder.eval()
-    codec.quantizer.eval()
-    codec.decoder.train()
+    # Put the WHOLE model in eval mode. This is intentional: we want to disable training-mode
+    # behaviour (BatchNorm running-stat updates, dropout, EMA buffer updates in Mimi's quantizer)
+    # everywhere except gradient flow itself. .eval() doesn't affect autograd — the decoder's
+    # requires_grad=True params still receive gradients. For Mimi, leaving the model in train()
+    # produces a deterministic NaN every other step (internal state updates leak across calls);
+    # for DAC it was harmless but unnecessary.
+    codec.model.eval()
 
     # Loss + optimiser.
     mel_loss = MultiScaleMelLoss(sample_rate=cfg.sample_rate).to(device)
@@ -141,11 +143,14 @@ def train_d2(codec: Codec, corpus: CorpusDataset, cfg: TrainConfig) -> TrainResu
             x = corpus.random_batch(cfg.batch_size).to(device, non_blocking=True)
 
             with torch.no_grad():
-                x_pre = codec.model.preprocess(x, sr)
-                z, _codes, _latents, _cm, _cb = codec.model.encode(x_pre)
+                codes = encode_to_codes(codec, x)
 
-            y_hat = codec.model.decode(z)
-            loss = mel_loss(y_hat, x_pre) + cfg.waveform_weight * waveform_l1(y_hat, x_pre)
+            y_hat = decode_from_codes(codec, codes)
+            # Trim to common length (different codecs handle padding differently).
+            n = min(y_hat.shape[-1], x.shape[-1])
+            y_hat_t = y_hat[..., :n]
+            x_t = x[..., :n]
+            loss = mel_loss(y_hat_t, x_t) + cfg.waveform_weight * waveform_l1(y_hat_t, x_t)
 
             lv = float(loss.detach().cpu())
             losses.append(lv)

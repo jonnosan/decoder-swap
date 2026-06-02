@@ -36,6 +36,7 @@ def main() -> int:
         model_tag=settings.codec_model_tag,
         model_path=settings.codec_model_path,
         device=device,
+        num_quantizers=settings.codec_num_quantizers,
     )
 
     conv = codec.convention

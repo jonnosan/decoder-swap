@@ -229,6 +229,89 @@ The hypothesis is **partially supported**:
 A clean refutation, or a clean partial confirmation, is as valuable as a clean full confirmation
 — per the design brief. We have the latter.
 
+## Mimi follow-up (same session)
+
+After the DAC run we re-ran the whole pipeline on **[Mimi](https://huggingface.co/kyutai/mimi)**
+(Kyutai) as a second codec — same M3 → M4 recipe, completely different bottleneck:
+
+| | DAC 44 kHz | Mimi |
+|---|---:|---:|
+| Audio rate | 44 100 Hz | 24 000 Hz |
+| Frame rate | 86.13 fps | **12.5 fps** (≈7× lower) |
+| Codebooks used | 9 | 8 (1 semantic + 7 acoustic) |
+| Total bitrate | 7.75 kbps | **1.1 kbps** (≈7× lower) |
+| M3 wall clock | 108 min | **9.3 min** |
+| M3 loss improvement | −45.7 % | −30.2 % |
+| M3 NaN-step rate | 0 % | **48 %** (caught + skipped) |
+
+**Mimi-specific integration notes worth recording:**
+- 7 top-level submodules instead of 3. Logical grouping for the freeze:
+  *frozen front-end* = `encoder + encoder_transformer + downsample + quantizer` (39.4 M);
+  *trainable* = `upsample + decoder_transformer + decoder` (39.9 M).
+- Codebooks are **EMA buffers** (`.embed`), not `nn.Parameter` — different fingerprint path
+  in `codebook_tensors()`.
+- `weight_norm` not used in Mimi (0 modules removed).
+- **Segment length must be a multiple of `hop_length` (1920 samples).** At `segment_seconds=1.5`
+  (= 18.75 frames at 24 kHz) Mimi's internal padding produced NaN on **every even step**, deterministically.
+  `segment_seconds=2.0` (= 25 frames exact) dropped the smoke-test NaN rate from 47 % → 3 %.
+  Snapping `segment_samples` to `floor(samples / hop) * hop` in `CorpusDataset` would be the
+  bulletproof fix.
+- Even with the fix, **NaN rate climbed back to ~48 % at scale** as the decoder weights drifted —
+  effective training was ~1 300 real gradient updates, not 2 500. Loss still descended cleanly,
+  but a real fix needs deeper diagnosis (most likely a Mimi transformer attention path that's
+  sensitive to specific normalisation states the optimizer drifts into).
+
+### Mimi M4 results vs DAC M4 (same Blue Kentucky Girl held-out clip)
+
+| metric | DAC | Mimi | direction |
+|---|---:|---:|---|
+| Onset F1 | 0.886 | 0.812 | mostly preserved |
+| RMS envelope r | 0.946 | 0.972 | essentially identical |
+| **log-mel L1 distance (dB)** | **2.68** | **4.19** | larger spectral shift ✓ |
+| MFCC L1 | 5.47 | 7.23 | larger |
+| Spectral centroid r | 0.685 | 0.927 | tighter centroid tracking |
+| Chroma cosine | **0.978** | **0.897** | **much more pitch drift** |
+| Forgetting Δ (input↔S2 − input↔S1, dB) | +0.96 | **−1.17** | **D2 reconstructs input *better* than D1** |
+
+### Perception vs metrics — the most informative finding of the session
+
+User's listening report on Mimi S2:
+> "S1 sounds closer to the original than S2. S2 sounds like S1 via an extreme ring modulator."
+
+Mapped against the metrics:
+- The mel-dB *forgetting probe* says D2 is **closer** to the input than D1 — directly contradicting
+  the user's perception that D2 is the more artificial-sounding one.
+- Only **chroma cosine** (which dropped from 0.978 → 0.897) tracked the perceptual change.
+
+This reveals a real limitation of the experiment's headline metric: **mel-dB distance is
+insensitive to ring-modulator-style distortion**. Ring-mod preserves a lot of *aggregate*
+log-mel energy distribution while sounding dramatically more artificial — so D2's output can
+look numerically closer in mel space than D1's while being audibly further from real audio.
+Any future re-voicing experiment should treat mel-dB as ONE signal and combine it with chroma
+and adversarial-discriminator-style realism scores. Tracked as
+[issue #6](https://github.com/jonnosan/decoder-swap/issues/6) (filed during wrap-up).
+
+### What this tells us about the mechanism (refined)
+
+The DAC result was "subtle ring-mod overlay." The Mimi result is "extreme ring-mod overlay."
+Same character, sharper signal. Mechanistic story:
+
+- mel-loss-only fine-tuning teaches the decoder to **impose a characteristic spectral fingerprint**.
+- The **less freedom** the decoder has in its token grid (sparser tokens, fewer bits/frame), the
+  **more pronounced** the fingerprint becomes when applied to OOD inputs.
+- DAC at 7.75 kbps gave the decoder enough room to render naturally → subtle ring-mod.
+- Mimi at 1.1 kbps gave it much less room → extreme ring-mod.
+
+Also worth noting on the *direction* of forgetting:
+- **DAC D1** was pretrained on broad music + speech, so techno-specialisation *narrowed* its capability
+  on country.
+- **Mimi D1** was pretrained primarily on speech, so techno-specialisation actually *generalised* it
+  toward music in general — D2 reconstructs country better than D1 does.
+
+So "fine-tuning a decoder narrows it toward the new corpus" is too simple. The right statement is:
+**the decoder moves toward its training data**. Whether that means "more specialised" or
+"more general" depends entirely on where the decoder started.
+
 ## Real bugs hit along the way
 
 These cost time to find — recording so we don't pay them again.
@@ -254,13 +337,48 @@ These cost time to find — recording so we don't pay them again.
 
 ## What to try next
 
-The natural next experiment is **adversarial decoder fine-tune** — add a discriminator that
-learns to distinguish real techno from D2 output, and train D2 to fool it (alongside the existing
-mel + waveform reconstruction losses). This should push D2 toward producing *realistic* techno
-audio rather than just *spectrally close* audio, and is the standard fix in the codec literature
-for exactly the "ring-mod-not-techno" result we got.
+### The actual goal (clarified mid-session)
 
-Tracked as a separate session — see GitHub issues.
+> "I want to find a way that lets us 'play a country song in techno sounds' in a way that the
+> intermediate processing (i.e. tokens from encoder to decoder) is observable."
+
+Both halves of that constraint matter. End-to-end models like MusicGen / Stable Audio / Riffusion
+could produce *something that sounds like techno performing the song*, but they don't preserve
+the clean `audio → tokens → audio` shape we had — MusicGen-Melody uses chromagrams not tokens as
+its structural conditioning, so the "what the system thinks this song is" representation gets lost.
+
+### Recommended direction: token translation
+
+The decoder-swap design has a hard ceiling for genre transplant — the encoder bakes the input
+into the tokens too completely, and re-training the decoder can only impose a spectral fingerprint
+on top of that. The natural extension that **keeps observability AND can achieve real genre
+transplant** is to add a learned **token translator** in the middle:
+
+```
+country audio → ENCODER (frozen) → T_country (observable)
+                                   ↓
+                            TRANSLATOR (the new piece)
+                                   ↓
+                                T_techno (observable — directly comparable to T_country!)
+                                   ↓
+                                DECODER (original D1) → techno-style audio
+```
+
+Both `T_country` and `T_techno` are inspectable. You can ask which codebook entries the
+translator changed, whether rhythm stayed, whether harmony shifted — *the experiment becomes
+more interpretable, not less*.
+
+A first-attempt minimum-viable version is a small autoregressive transformer (~10-30 M params)
+trained on the technical corpus's tokens, then used at inference with input tokens as
+cross-attention context to steer generation. Tracked as
+[issue #6](https://github.com/jonnosan/decoder-swap/issues/6) — the new top-priority next step.
+
+### Deprioritised: adversarial decoder ([epic #3](https://github.com/jonnosan/decoder-swap/issues/3))
+
+Originally the next step after M5. Still scientifically interesting — would *reduce* the ring-mod
+fingerprint by training the decoder to fool a discriminator. But: it can't achieve real genre
+transplant either, because the structural ceiling is the same. Better as a comparison data point
+*after* the translator path produces results, not as the primary next step.
 
 ## Codec licence
 
