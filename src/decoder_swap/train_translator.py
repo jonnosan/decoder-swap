@@ -234,8 +234,16 @@ def train_translator(
                 sps = step / max(elapsed, 1e-9)
                 eta_s = (cfg.steps - step) / max(sps, 1e-9)
                 cur_lr_disp = lr_for_step(step)
+                # Diagnostic norms — useful for spotting embedding-shrinkage / runaway-gradient
+                # pathologies that the loss alone can hide. Cheap (no grad needed; just .data).
+                with torch.no_grad():
+                    embed_norm = float(model.embed.weight.detach().norm().cpu())
+                    l0_outproj_norm = float(
+                        model.encoder.layers[0].self_attn.out_proj.weight.detach().norm().cpu()
+                    )
                 print(
                     f"  step {step:>5d}/{cfg.steps}  loss={avg:.4f}  lr={cur_lr_disp:.2e}  "
+                    f"|embed|={embed_norm:.2f}  |L0.outp|={l0_outproj_norm:.2f}  "
                     f"elapsed={elapsed:6.1f}s  rate={sps:.2f} steps/s  eta={eta_s:6.1f}s",
                     flush=True,
                 )

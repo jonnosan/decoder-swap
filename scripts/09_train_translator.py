@@ -47,6 +47,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--grad-clip", type=float, default=1.0)
     ap.add_argument("--weight-decay", type=float, default=0.0,
                     help="0 by default (M6.A: wd>0 caused late-stage collapse to uniform output)")
+    ap.add_argument("--lr-min-ratio", type=float, default=0.1,
+                    help="cosine decays to lr * this; pass 1.0 to disable decay (constant lr)")
     ap.add_argument("--warmup-steps", type=int, default=0,
                     help="linear lr warmup over this many steps (0 = disabled)")
     ap.add_argument("--log-every", type=int, default=20)
@@ -97,6 +99,7 @@ def main() -> int:
         lr=args.lr,
         grad_clip=args.grad_clip,
         weight_decay=args.weight_decay,
+        lr_min_ratio=args.lr_min_ratio,
         warmup_steps=args.warmup_steps,
         log_every=args.log_every,
         ckpt_every=args.ckpt_every,
