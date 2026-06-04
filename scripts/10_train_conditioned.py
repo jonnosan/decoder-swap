@@ -102,6 +102,18 @@ def main() -> int:
         print(f"ERROR: base LM checkpoint not found at {base_lm_path}. Run scripts/09 first.")
         return 1
 
+    # Read decoder architecture from the base LM checkpoint so the conditioned model's
+    # decoder shape matches the saved weights (load_from_unconditional copies layer-by-layer).
+    import torch  # local import to keep top-level deps tidy
+    base_state = torch.load(str(base_lm_path), map_location="cpu", weights_only=False)
+    base_tc = base_state.get("translator_config", {})
+    base_d_model = int(base_tc.get("d_model", 384))
+    base_n_layers = int(base_tc.get("n_layers", 6))
+    base_n_heads = int(base_tc.get("n_heads", 6))
+    base_d_ff = int(base_tc.get("d_ff", 1536))
+    print(f"base LM arch: d_model={base_d_model} n_layers={base_n_layers} "
+          f"n_heads={base_n_heads} d_ff={base_d_ff}")
+
     pairs = discover_track_pairs(tokens_dir, jtxtok_dir)
     if not pairs:
         print(f"ERROR: no paired tracks found. Need both <stem>.npy in {tokens_dir} AND "
@@ -124,10 +136,11 @@ def main() -> int:
     print(f"window: {args.window_seconds:.1f} s = {dataset.window_frames} DAC frames, "
           f"jtxtok cap {args.max_jtxtok_len}")
 
-    # ConditionedTranslator config — must match the M6.A base LM's decoder arch.
+    # ConditionedTranslator config — decoder arch is read from the M6.A base LM checkpoint
+    # so load_from_unconditional can copy weights directly. Encoder arch stays at defaults.
     cond_cfg = ConditionedTranslatorConfig(
         dac_vocab_size=1024,
-        d_model=384, n_layers=6, n_heads=6, d_ff=1536,
+        d_model=base_d_model, n_layers=base_n_layers, n_heads=base_n_heads, d_ff=base_d_ff,
         max_dac_seq_len=dataset.window_frames * pairs[0].dac.shape[0] + 16,
         jtxtok_vocab_size=vocab.size, jtxtok_pad_id=vocab.pad_id,
         enc_d_model=256, enc_n_layers=3, enc_n_heads=4, enc_d_ff=1024,
