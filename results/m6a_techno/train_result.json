@@ -1,0 +1,32 @@
+{
+  "steps": 305,
+  "elapsed_seconds": 270.8192539215088,
+  "loss_first_window": 6.116119813919068,
+  "loss_last_window": 6.896412324905396,
+  "improvement_pct": -12.757966402334667,
+  "random_baseline": 6.931471805599453,
+  "nan_steps": 0,
+  "ckpt_path": "data/checkpoints/translator/techno/diag_inproc/translator_lm.pt",
+  "config": {
+    "n_codebooks": 9,
+    "vocab_size": 1024,
+    "frame_rate": 86.1328125,
+    "batch_size": 8,
+    "window_seconds": 3.0,
+    "seed": 0,
+    "steps": 305,
+    "lr": 0.0003,
+    "grad_clip": 1.0,
+    "weight_decay": 0.01,
+    "warmup_steps": 0,
+    "lr_min_ratio": 1.0,
+    "log_every": 20,
+    "ckpt_every": 500,
+    "ckpt_dir": "data/checkpoints/translator/techno/diag_inproc",
+    "d_model": 256,
+    "n_layers": 4,
+    "n_heads": 4,
+    "d_ff": 1024,
+    "dropout": 0.0
+  }
+}

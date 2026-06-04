@@ -1,0 +1,32 @@
+{
+  "steps": 5000,
+  "elapsed_seconds": 191.76354098320007,
+  "loss_first_window": 5.152453863620758,
+  "loss_last_window": 0.4710983134806156,
+  "improvement_pct": 90.8568164616313,
+  "random_baseline": 7.6246189861593985,
+  "nan_steps": 0,
+  "ckpt_path": "/Users/jonno/src/decoder_swap/data/checkpoints/translator/techno/rvq_mimi/translator_rvq.pt",
+  "config": {
+    "n_codebooks": 8,
+    "vocab_size": 2048,
+    "frame_rate": 12.5,
+    "batch_size": 8,
+    "window_seconds": 8.0,
+    "seed": 0,
+    "steps": 5000,
+    "lr": 0.0003,
+    "grad_clip": 1.0,
+    "weight_decay": 0.0,
+    "lr_min_ratio": 0.1,
+    "warmup_steps": 0,
+    "log_every": 20,
+    "ckpt_every": 500,
+    "ckpt_dir": "/Users/jonno/src/decoder_swap/data/checkpoints/translator/techno/rvq_mimi",
+    "d_model": 256,
+    "n_layers": 4,
+    "n_heads": 4,
+    "d_ff": 1024,
+    "dropout": 0.0
+  }
+}

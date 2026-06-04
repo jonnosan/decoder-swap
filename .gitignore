@@ -4,6 +4,12 @@ __pycache__/
 .ruff_cache/
 .DS_Store
 
+# Per-session Claude state (scheduled tasks lock etc.)
+.claude/
+
+# Background-process logs
+logs/
+
 # Large/intermediate data — corpus paths point at ~/Downloads; checkpoints live here.
 data/
 
