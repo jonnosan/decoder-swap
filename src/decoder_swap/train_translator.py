@@ -257,7 +257,6 @@ def train_translator(
 
             if step % cfg.ckpt_every == 0:
                 _save_checkpoint(model, cfg, step, time.time() - t0, losses, ckpt_path)
-                print(f"  [ckpt] saved at step {step} -> {ckpt_path}", flush=True)
     except KeyboardInterrupt:
         interrupted = True
         print(
