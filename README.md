@@ -1,7 +1,93 @@
 # decoder-swap
 
-A small, self-contained research experiment. **Does the structural information carried by a neural
-audio codec's token sequence survive a re-voiced decoder?**
+A research project that has gone through two pivots. The repo's name and earliest sections
+describe the founding experiment (re-voiced decoder, structure-preservation); the current
+direction is **per-stem audio generation conditioned on extracted semantic info, scoped to
+small style-coherent corpora**. See [Current direction](#current-direction-2026-06-04--stems-pivot)
+for what's being built right now, and [Pivot history](#pivot-history) for what's parked and why.
+
+---
+
+## Current direction (2026-06-04) — stems pivot
+
+The earlier full-mix codec-token-LM line of work (M6.A scaled-up LM + jtxtok cross-attention
+conditioning + fixer post-net) is **parked**. Multiple ceilings: the LM produced outputs that
+were OOD for the codec decoder (hum/glitch the fixer only partially recovered); modelling
+drums + bass + harmony jointly is hard; Mimi-at-low-bitrate sounded scratchy on music.
+
+**The new architecture splits the problem along source-separation lines first, then chooses a
+representation per stem based on the actual content type:**
+
+```
+   audio
+     │
+     │  (1) Demucs htdemucs → drums / bass / other / vocals
+     ▼
+   per-stem extraction (semantic) + per-stem resynthesis (acoustic)
+     │
+     │  drums  : MIDI onsets + drum-type tags  →  MIDI synth (canned)
+     │  bass   : polyphonic MIDI + pitchbend   →  per-corpus DAC-codec-LM
+     │  other  : per-frame loudness / key      →  per-corpus DAC-codec-LM
+     │  vocals : (skipped — instrumental corpora)
+     ▼
+   reassembly: sum of per-stem resyntheses
+```
+
+This is essentially **AudioLM's coarse/fine split with explicit source decomposition before
+tokenisation**, per-corpus rather than universal. Each stem gets the tool that fits its content
+shape — MIDI for note-like content, codec-LM for textural/timbral content.
+
+The per-stem representation mapping and reasoning is documented in design memo
+[`docs/STEMS_ARCHITECTURE.md`](docs/STEMS_ARCHITECTURE.md). The 2026-06-04 step-1 empirical
+results that motivated it are at [`docs/STEMS_V1_FINDINGS.md`](docs/STEMS_V1_FINDINGS.md).
+
+### Current milestones
+
+| | Goal | Approach | Tracking |
+|---|---|---|---|
+| **M1** | Better bass: extract MIDI+bend from corpus bass stems and a "sample" (broadly defined — either an audio reference or a small trained model), reconstruct bass and sum into mix | Phase 1B: per-corpus **DAC-codec-LM** conditioned on MIDI+bend. Phase 1B.1 = feasibility on Beltram alone. Phase 1B.2 = corpus scale-up. Phase 1B.3 = mutation via novel MIDI input. | issue #10 |
+| **M2** | Drums: MIDI extraction + reconstruct via canned MIDI synth (no per-hit sample extraction — sidesteps the reverb-tail problem) | Onset detection + drum-type rules → drum MIDI (GM mapping) → fluidsynth + GM percussion soundfont | issue #11 |
+
+Concrete user preferences locked in this session:
+- Codec for both bass and `other` codec-LM work: **DAC 44 kHz / 9 cb** (music-trained, not
+  Mimi which is speech-trained).
+- Corpus scope: 1–100 songs, single style, no vocals (Mayday compilation, Vytis sets, etc.).
+- Quality target: "fits in to the corpus" — generated content that *sounds like* the corpus,
+  not literal corpus audio. *More* interested in things that don't appear in the corpus
+  directly (genuine generation) than in faithful reproduction.
+
+### Pipeline status (single-command end-to-end)
+
+`scripts/40_run_pipeline.py --in <audio> --slug <name>` runs Demucs separation → basic-pitch
+MIDI+bend extraction → polished bass-sample ranking (script 37) → exemplar-pitch-shift resynth
+(script 34, used as A/B baseline, not the target) → numpy saw-synth resynth (script 36, with
+per-note pitchbend) → reassembly with original drums/other/vocals. Idempotent: each stage
+skips its own work if outputs are present.
+
+Cost on a 4-min track:
+- Demucs: ~30 s
+- basic-pitch on bass: ~5 s
+- Sample-bank ranking: ~1 s
+- Synth resynth: <1 s
+- Total: under 1 minute end-to-end
+
+What survives from the parked work for the 1B build:
+- `src/decoder_swap/codec_io.py` (DAC loading + encode/decode)
+- `scripts/07_cache_translator_tokens.py` (corpus → DAC token cache)
+- `src/decoder_swap/translator_rvq.py` (parallel-codebook AR scaffolding)
+- `src/decoder_swap/fixer.py` + GAN variants (post-net if codec-LM artefacts intrude)
+- per-corpus YAML convention in `corpora/`
+
+What's new (built 2026-06-04):
+- `scripts/30_separate_stems.py` — Demucs front-end
+- `scripts/33_bass_to_midi.py` — pYIN | basic-pitch backends + pitchbend capture
+- `scripts/37_extract_bass_exemplars.py` — score + polish sample candidates
+- `scripts/34_midi_to_bass_exemplar.py` — A/B exemplar resynth baseline
+- `scripts/36_midi_to_bass_synth.py` — numpy saw synth with per-note pitchbend
+- `scripts/35_reassemble_swap_bass.py` — sum stems with swap variants
+- `scripts/40_run_pipeline.py` — single-command driver
+
+---
 
 ## Hypothesis
 
@@ -41,23 +127,24 @@ single-element drift — see `scripts/02_freeze_check.py`.
 
 ## Status
 
-Decoder-swap milestones complete (2026-06-02). Project goal **pivoted** away from
-country→techno translation toward **jtxtok-conditioned techno generation** (see
-[docs/prompts/](docs/prompts/) and issue #8). The pivot kept the M6 substrate work
-(unconditional techno LM) and replaced the M6 prefix-conditioning idea with M7 jtxtok-
-conditioned generation.
+Two pivots so far. The current direction (stems pivot, 2026-06-04) is described in the
+section at the top of this README. Status by line of work:
 
-- [x] **M0** — skeleton + codec verification
-- [x] **M1** — sanity round-trip
-- [x] **M2** — freeze + invariants
-- [x] **M3** — decoder fine-tune on CORPUS_NEW
-- [x] **M4** — comparison (S1 vs S2)
-- [x] **M5** — plots + writeup
-- [x] **M6.0** — token-translator feasibility smoke — **PASS**, AR-on-DAC-tokens viable
-- [ ] **M6.A** — scaled-up unconditional techno LM (substrate for M7)
-- [ ] **M7.A** — cross-attention conditioning surgery on the base model (PROMPT_3 Part A)
-- [ ] **M7.B** — training: corpus pairs (no MT) + synthetic MT sweeps + dropouts (PROMPT_3 Part B)
-- [ ] **M7.C** — generation: voice filter × CFG scale + BOS / from-scratch (PROMPT_3 Parts C+D)
+### Stems pivot (current)
+- [x] **Step 1** — Demucs round-trip vs full-mix DAC baseline. Confirmed: separation cost is negligible (Mel L1 0.18 dB on sum-of-stems vs original), so per-stem extraction is a viable foundation.
+- [x] **Step 2** — Bass pipeline v1: bass.wav → pYIN MIDI → exemplar pitch-shift / synth resynth → recombine. User verdict on the synth path: "sounds pretty good." pYIN was wrong for polyphonic bass; replaced with **basic-pitch**.
+- [x] **Step 3** — basic-pitch + pitchbend capture + saw-synth with phase-accumulated bend. Pipeline is single-command idempotent (script 40).
+- [x] **Step 4** — Option C empirical check: basic-pitch on `other.wav` produces 1102 notes spread across 5½ octaves with implausible polyphony. Confirms MIDI is wrong representation for synth-textural content; DAC-codec-LM is the right tool.
+- [ ] **M1 (issue #10)** — Phase 1B: per-corpus DAC-codec-LM for bass conditioned on MIDI+bend.
+- [ ] **M2 (issue #11)** — Drums: MIDI extraction + fluidsynth+GM-percussion playback.
+
+### Codec-token-LM line (parked at end of 2026-06-04)
+- [x] **M0–M5** — decoder-swap experiment + writeup, scientifically complete (see below for results)
+- [x] **M6.0** — token-translator feasibility smoke — PASS
+- [x] **M6.A (Mimi 8-cb)** — parallel-RVQ LM trained on Mimi tokens; generates audible techno but jumps between contexts. Phantom-loss artefact under multi-batch training documented in commit history.
+- [x] **Fixer ladder** — U-Net + HiFi-GAN v1 + GAN v2 (with LM-output augmentation). Best-of: GAN v2; partial improvement on LM-output, not full.
+- [x] **Mimi 4-cb experiment** — codec ceiling too scratchy for music.
+- ~~M7.A/B/C~~ — jtxtok cross-attention conditioning. **Parked** in favour of per-stem MIDI conditioning. The M6.A scaffolding survives as substrate for the M1 1B build, just retargeted to bass-only + MIDI conditioning.
 
 External prerequisites for M7 (separate components, not built in this repo):
 - `audio→jtxtok` extractor (PROMPT_2) — training-time conditioning producer.
@@ -436,7 +523,13 @@ The smoke confirms the load-bearing premise of the original issue #6 "token tran
 (AR-on-DAC-tokens is viable). It does NOT validate the *prefix-conditioning at inference*
 recipe — and that recipe has been retired as of the 2026-06-02 pivot. See the next section.
 
-## Pivot (2026-06-02): from translation to jtxtok-conditioned generation
+## Pivot history
+
+There have been two pivots. The 2026-06-04 stems pivot (top of this README) supersedes
+both the founding decoder-swap experiment (M0–M5) and the 2026-06-02 jtxtok-conditioning
+pivot. The previous sections are kept for record.
+
+## Pivot 1 (2026-06-02): from translation to jtxtok-conditioned generation — *now also parked*
 
 The previous goal — *"play a country song in techno sounds while keeping the intermediate
 tokens observable"* — has been retired. M0–M5 already showed the structural ceiling: a frozen
@@ -493,6 +586,11 @@ with the extractor's standalone validation as the gate before this repo's M7 wor
 - [#5](https://github.com/jonnosan/decoder-swap/issues/5) lower-bitrate codec variants,
 - [#7](https://github.com/jonnosan/decoder-swap/issues/7) metric set augmentation (more relevant
   than before — generation evaluation needs realism signals beyond mel-dB).
+
+## Pivot 2 (2026-06-04): from full-mix codec-LM to per-stem architecture — current
+
+See [Current direction](#current-direction-2026-06-04--stems-pivot) at the top of this README
+for the full picture. Tracked in issues #10 (M1 bass via 1B) and #11 (M2 drums via MIDI synth).
 
 ## Codec licence
 

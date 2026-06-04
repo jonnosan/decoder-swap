@@ -1,0 +1,54 @@
+[
+  {
+    "idx": 135,
+    "start_s": 72.29510929705215,
+    "end_s": 72.7478984126984,
+    "pitch": 36,
+    "pitch_name": "C2",
+    "velocity": 72,
+    "raw_sample_len_s": 0.45278911564625446,
+    "scores": {
+      "bass_band_ratio": 0.9610576439193654,
+      "pitch_stability": 0.5919871973510685,
+      "duration_score": 0.5092970521541816,
+      "onset_clarity": 0.4890450755881947,
+      "not_at_edges": 1.0,
+      "not_outlier_pitch": 1.0
+    },
+    "composite": 0.7800666802239383,
+    "polished_sample": {
+      "file": "candidate_01__score=0.780__pitch=C2__start=72.3s.wav",
+      "start_sample": 3188332,
+      "end_sample": 3208311,
+      "polished_len_s": 0.45303854875283445,
+      "fade_in_ms": 3.0,
+      "fade_out_ms": 30.0
+    }
+  },
+  {
+    "idx": 106,
+    "start_s": 67.8459201814059,
+    "end_s": 68.2870993197279,
+    "pitch": 36,
+    "pitch_name": "C2",
+    "velocity": 75,
+    "raw_sample_len_s": 0.4411791383219992,
+    "scores": {
+      "bass_band_ratio": 0.9824781363047485,
+      "pitch_stability": 0.6096813688227104,
+      "duration_score": 0.4705971277399973,
+      "onset_clarity": 0.43186172231594,
+      "not_at_edges": 1.0,
+      "not_outlier_pitch": 1.0
+    },
+    "composite": 0.7795793628637977,
+    "polished_sample": {
+      "file": "candidate_02__score=0.780__pitch=C2__start=67.8s.wav",
+      "start_sample": 2991996,
+      "end_sample": 3011503,
+      "polished_len_s": 0.4423356009070295,
+      "fade_in_ms": 3.0,
+      "fade_out_ms": 30.0
+    }
+  }
+]
