@@ -1,0 +1,92 @@
+[
+  {
+    "note_idx": 332,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 204.99029160997733,
+    "pitch": 24,
+    "velocity": 41,
+    "duration_s": 0.0928798185940991,
+    "quality_rms": 0.09992777202041067
+  },
+  {
+    "note_idx": 327,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 193.99954965986393,
+    "pitch": 39,
+    "velocity": 38,
+    "duration_s": 0.06965986394558854,
+    "quality_rms": 0.09311995292331116
+  },
+  {
+    "note_idx": 215,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 101.73405034013605,
+    "pitch": 36,
+    "velocity": 45,
+    "duration_s": 0.2089795918367372,
+    "quality_rms": 0.0997996803093
+  },
+  {
+    "note_idx": 298,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 137.36496099773242,
+    "pitch": 24,
+    "velocity": 44,
+    "duration_s": 0.06965986394556012,
+    "quality_rms": 0.10044097640103958
+  },
+  {
+    "note_idx": 163,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 81.8333201814059,
+    "pitch": 39,
+    "velocity": 38,
+    "duration_s": 0.1044897959183686,
+    "quality_rms": 0.09842922899278164
+  },
+  {
+    "note_idx": 300,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 138.7233283446712,
+    "pitch": 36,
+    "velocity": 44,
+    "duration_s": 0.06965986394558854,
+    "quality_rms": 0.09937496747363572
+  },
+  {
+    "note_idx": 251,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 117.8009201814059,
+    "pitch": 36,
+    "velocity": 39,
+    "duration_s": 0.05804988662131905,
+    "quality_rms": 0.10094903021370039
+  },
+  {
+    "note_idx": 309,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 144.50894875283444,
+    "pitch": 36,
+    "velocity": 46,
+    "duration_s": 0.1277097505669076,
+    "quality_rms": 0.09839546805388734
+  },
+  {
+    "note_idx": 15,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 34.67760861678005,
+    "pitch": 39,
+    "velocity": 53,
+    "duration_s": 0.2089795918367301,
+    "quality_rms": 0.11676419018103587
+  },
+  {
+    "note_idx": 138,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 74.73448843537415,
+    "pitch": 39,
+    "velocity": 60,
+    "duration_s": 0.08126984126984382,
+    "quality_rms": 0.06630417749444388
+  }
+]

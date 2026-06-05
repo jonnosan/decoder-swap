@@ -1,0 +1,92 @@
+[
+  {
+    "note_idx": 1304,
+    "song": "vytis_vol1",
+    "song_start_s": 1609.4281678004536,
+    "pitch": 32,
+    "velocity": 67,
+    "duration_s": 0.4643990929705524,
+    "quality_rms": 0.06948566389712467
+  },
+  {
+    "note_idx": 3470,
+    "song": "vytis_vol1",
+    "song_start_s": 3085.5342145124714,
+    "pitch": 31,
+    "velocity": 88,
+    "duration_s": 0.5108390022678577,
+    "quality_rms": 0.05048856155083193
+  },
+  {
+    "note_idx": 1332,
+    "song": "vytis_vol1",
+    "song_start_s": 1629.8629569160998,
+    "pitch": 32,
+    "velocity": 69,
+    "duration_s": 0.3831292517006659,
+    "quality_rms": 0.09062452131729551
+  },
+  {
+    "note_idx": 1382,
+    "song": "vytis_vol1",
+    "song_start_s": 1659.7895170068027,
+    "pitch": 32,
+    "velocity": 55,
+    "duration_s": 0.22058956916112038,
+    "quality_rms": 0.0122822708179185
+  },
+  {
+    "note_idx": 7184,
+    "song": "vytis_vol1",
+    "song_start_s": 5399.830321088436,
+    "pitch": 34,
+    "velocity": 41,
+    "duration_s": 0.06965986394516221,
+    "quality_rms": 0.08493518713751474
+  },
+  {
+    "note_idx": 3749,
+    "song": "vytis_vol1",
+    "song_start_s": 3213.082325170068,
+    "pitch": 31,
+    "velocity": 80,
+    "duration_s": 0.4063492063492049,
+    "quality_rms": 0.08271159725885505
+  },
+  {
+    "note_idx": 1184,
+    "song": "vytis_vol1",
+    "song_start_s": 1527.8734870748299,
+    "pitch": 32,
+    "velocity": 66,
+    "duration_s": 0.3599092970523543,
+    "quality_rms": 0.10735896609786769
+  },
+  {
+    "note_idx": 8713,
+    "song": "vytis_vol1",
+    "song_start_s": 7193.709501587301,
+    "pitch": 33,
+    "velocity": 40,
+    "duration_s": 0.058049886621120095,
+    "quality_rms": 0.0999254280236424
+  },
+  {
+    "note_idx": 3637,
+    "song": "vytis_vol1",
+    "song_start_s": 3172.804855782313,
+    "pitch": 31,
+    "velocity": 49,
+    "duration_s": 0.05804988662157484,
+    "quality_rms": 0.08560440413710226
+  },
+  {
+    "note_idx": 545,
+    "song": "vytis_vol1",
+    "song_start_s": 268.01421950113377,
+    "pitch": 41,
+    "velocity": 57,
+    "duration_s": 0.23348344671205723,
+    "quality_rms": 0.0743913400623178
+  }
+]

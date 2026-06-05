@@ -1,0 +1,29 @@
+[
+  {
+    "note_idx": 231,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 109.43660090702947,
+    "pitch": 39,
+    "velocity": 39,
+    "duration_s": 0.12770975056689338,
+    "quality_rms": 0.09766648716233323
+  },
+  {
+    "note_idx": 127,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 72.62018866213151,
+    "pitch": 39,
+    "velocity": 41,
+    "duration_s": 0.08126984126984382,
+    "quality_rms": 0.06569019100363656
+  },
+  {
+    "note_idx": 323,
+    "song": "mayday_d1t02_beltram_machine",
+    "song_start_s": 187.87723990929706,
+    "pitch": 27,
+    "velocity": 43,
+    "duration_s": 0.06965986394556012,
+    "quality_rms": 0.12398085652084696
+  }
+]
