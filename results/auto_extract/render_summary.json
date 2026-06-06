@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "dmxkrew_101_tonight",
+    "score": 0.8101,
+    "render": "/Users/jonno/src/decoder_swap/results/auto_extract/dmxkrew_101_tonight_auto30.wav",
+    "original": "/Users/jonno/src/decoder_swap/results/auto_extract/dmxkrew_101_tonight_original30.wav",
+    "render_rms": 0.13048473313784364,
+    "orig_rms": 0.0887772985124163,
+    "program": 38,
+    "params": {
+      "bpm": 165.7167908811924,
+      "anchor_used": 9.594569160997732,
+      "pre_merge_ms": 0,
+      "offset_steps": -1
+    }
+  }
+]

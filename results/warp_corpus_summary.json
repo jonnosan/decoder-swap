@@ -1,0 +1,444 @@
+[
+  {
+    "slug": "dmxkrew_101_tonight",
+    "n_kicks": 335,
+    "bpm_median_kick": 143.55,
+    "total_notes": 674,
+    "warped_count": 600,
+    "warped_fraction": 0.8902077151335311,
+    "max_shift_from_raw_ms": 54.8,
+    "vs_old_quantize": {
+      "n_a": 674,
+      "n_b": 674,
+      "shift_mean_ms": 0.4725629821971727,
+      "shift_median_ms": 0.45658863637498825,
+      "shift_p90_ms": 0.8641122727313545,
+      "shift_max_ms": 1.1261772727380048
+    }
+  },
+  {
+    "slug": "dmxkrew_103_william_the_conqueror",
+    "n_kicks": 213,
+    "bpm_median_kick": 129.2,
+    "total_notes": 485,
+    "warped_count": 456,
+    "warped_fraction": 0.9402061855670103,
+    "max_shift_from_raw_ms": 521.4,
+    "vs_old_quantize": {
+      "n_a": 443,
+      "n_b": 485,
+      "shift_mean_ms": 75.27280572542125,
+      "shift_median_ms": 56.98832272727827,
+      "shift_p90_ms": 141.31887181818928,
+      "shift_max_ms": 469.9326181818222
+    }
+  },
+  {
+    "slug": "dmxkrew_104_the_pleasure_zone",
+    "n_kicks": 470,
+    "bpm_median_kick": 161.5,
+    "total_notes": 915,
+    "warped_count": 826,
+    "warped_fraction": 0.9027322404371585,
+    "max_shift_from_raw_ms": 1052.8,
+    "vs_old_quantize": {
+      "n_a": 831,
+      "n_b": 910,
+      "shift_mean_ms": 78.21680222076264,
+      "shift_median_ms": 46.10965454548932,
+      "shift_p90_ms": 117.42912727274302,
+      "shift_max_ms": 1039.8213727272712
+    }
+  },
+  {
+    "slug": "dmxkrew_105_quantum_logic",
+    "n_kicks": 271,
+    "bpm_median_kick": 120.19,
+    "total_notes": 483,
+    "warped_count": 454,
+    "warped_fraction": 0.9399585921325052,
+    "max_shift_from_raw_ms": 239.0,
+    "vs_old_quantize": {
+      "n_a": 464,
+      "n_b": 483,
+      "shift_mean_ms": 48.02355748432413,
+      "shift_median_ms": 42.731074999997176,
+      "shift_p90_ms": 70.89223545455425,
+      "shift_max_ms": 206.03358636363822
+    }
+  },
+  {
+    "slug": "dmxkrew_106_maximillian",
+    "n_kicks": 415,
+    "bpm_median_kick": 152.0,
+    "total_notes": 616,
+    "warped_count": 554,
+    "warped_fraction": 0.8993506493506493,
+    "max_shift_from_raw_ms": 267.1,
+    "vs_old_quantize": {
+      "n_a": 538,
+      "n_b": 615,
+      "shift_mean_ms": 29.44018621156857,
+      "shift_median_ms": 23.29478181820832,
+      "shift_p90_ms": 57.54289318182906,
+      "shift_max_ms": 239.68282727270207
+    }
+  },
+  {
+    "slug": "dmxkrew_107_when_the_going_gets_weird",
+    "n_kicks": 462,
+    "bpm_median_kick": 132.51,
+    "total_notes": 766,
+    "warped_count": 716,
+    "warped_fraction": 0.9347258485639687,
+    "max_shift_from_raw_ms": 254.9,
+    "vs_old_quantize": {
+      "n_a": 728,
+      "n_b": 766,
+      "shift_mean_ms": 50.36408427821309,
+      "shift_median_ms": 50.22091818181096,
+      "shift_p90_ms": 74.96883136361846,
+      "shift_max_ms": 245.04057727270379
+    }
+  },
+  {
+    "slug": "dmxkrew_108_echelon",
+    "n_kicks": 612,
+    "bpm_median_kick": 215.33,
+    "total_notes": 563,
+    "warped_count": 503,
+    "warped_fraction": 0.8934280639431617,
+    "max_shift_from_raw_ms": 105.1,
+    "vs_old_quantize": {
+      "n_a": 239,
+      "n_b": 563,
+      "shift_mean_ms": 25.705742183335882,
+      "shift_median_ms": 21.567090909087483,
+      "shift_p90_ms": 48.967679090903026,
+      "shift_max_ms": 106.64993636363107
+    }
+  },
+  {
+    "slug": "dmxkrew_109_jet_lag",
+    "n_kicks": 365,
+    "bpm_median_kick": 178.21,
+    "total_notes": 723,
+    "warped_count": 687,
+    "warped_fraction": 0.950207468879668,
+    "max_shift_from_raw_ms": 164.5,
+    "vs_old_quantize": {
+      "n_a": 640,
+      "n_b": 723,
+      "shift_mean_ms": 45.85818465198861,
+      "shift_median_ms": 39.577361363634765,
+      "shift_p90_ms": 92.71382590909383,
+      "shift_max_ms": 171.1093818181837
+    }
+  },
+  {
+    "slug": "dmxkrew_110_feynman_radio",
+    "n_kicks": 450,
+    "bpm_median_kick": 112.35,
+    "total_notes": 661,
+    "warped_count": 589,
+    "warped_fraction": 0.8910741301059002,
+    "max_shift_from_raw_ms": 70.3,
+    "vs_old_quantize": {
+      "n_a": 652,
+      "n_b": 661,
+      "shift_mean_ms": 51.78763877579715,
+      "shift_median_ms": 47.329681818183644,
+      "shift_p90_ms": 78.43045454545478,
+      "shift_max_ms": 176.9646454545466
+    }
+  },
+  {
+    "slug": "dmxkrew_111_dydramol_theme",
+    "n_kicks": 447,
+    "bpm_median_kick": 184.57,
+    "total_notes": 836,
+    "warped_count": 752,
+    "warped_fraction": 0.8995215311004785,
+    "max_shift_from_raw_ms": 91.8,
+    "vs_old_quantize": {
+      "n_a": 738,
+      "n_b": 836,
+      "shift_mean_ms": 41.7802744641454,
+      "shift_median_ms": 39.992738636353664,
+      "shift_p90_ms": 61.30496999999872,
+      "shift_max_ms": 135.27350000001093
+    }
+  },
+  {
+    "slug": "dmxkrew_113_a_heisenberg__b_silence__c_untitled",
+    "n_kicks": 792,
+    "bpm_median_kick": 246.09,
+    "total_notes": 1161,
+    "warped_count": 1002,
+    "warped_fraction": 0.8630490956072352,
+    "max_shift_from_raw_ms": 337.5,
+    "vs_old_quantize": {
+      "n_a": 1073,
+      "n_b": 1161,
+      "shift_mean_ms": 37.13294806828066,
+      "shift_median_ms": 32.408181818183834,
+      "shift_p90_ms": 64.0215636363564,
+      "shift_max_ms": 281.7682136363544
+    }
+  },
+  {
+    "slug": "dmxkrew_201_17_ways_to_break_my_heart",
+    "n_kicks": 632,
+    "bpm_median_kick": 198.77,
+    "total_notes": 1605,
+    "warped_count": 1408,
+    "warped_fraction": 0.8772585669781932,
+    "max_shift_from_raw_ms": 93.3,
+    "vs_old_quantize": {
+      "n_a": 1443,
+      "n_b": 1605,
+      "shift_mean_ms": 40.0590526932363,
+      "shift_median_ms": 38.73490909086286,
+      "shift_p90_ms": 60.3169436363487,
+      "shift_max_ms": 100.08179090910119
+    }
+  },
+  {
+    "slug": "dmxkrew_202_dance_to_the_beat",
+    "n_kicks": 505,
+    "bpm_median_kick": 161.5,
+    "total_notes": 880,
+    "warped_count": 790,
+    "warped_fraction": 0.8977272727272727,
+    "max_shift_from_raw_ms": 290.7,
+    "vs_old_quantize": {
+      "n_a": 662,
+      "n_b": 876,
+      "shift_mean_ms": 42.6240085690736,
+      "shift_median_ms": 31.551934090908063,
+      "shift_p90_ms": 89.66161045454797,
+      "shift_max_ms": 291.71463636363626
+    }
+  },
+  {
+    "slug": "dmxkrew_203_you_cant_hide_your_dub",
+    "n_kicks": 863,
+    "bpm_median_kick": 272.0,
+    "total_notes": 1042,
+    "warped_count": 859,
+    "warped_fraction": 0.8243761996161229,
+    "max_shift_from_raw_ms": 167.7,
+    "vs_old_quantize": {
+      "n_a": 935,
+      "n_b": 1042,
+      "shift_mean_ms": 37.572560772970704,
+      "shift_median_ms": 34.83792272729147,
+      "shift_p90_ms": 69.74984090909686,
+      "shift_max_ms": 168.23229545451568
+    }
+  },
+  {
+    "slug": "dmxkrew_204_dmx_funk_rock_mix",
+    "n_kicks": 652,
+    "bpm_median_kick": 166.71,
+    "total_notes": 1250,
+    "warped_count": 1119,
+    "warped_fraction": 0.8952,
+    "max_shift_from_raw_ms": 243.8,
+    "vs_old_quantize": {
+      "n_a": 1187,
+      "n_b": 1250,
+      "shift_mean_ms": 28.93850494370786,
+      "shift_median_ms": 23.810745454568405,
+      "shift_p90_ms": 56.81835272729643,
+      "shift_max_ms": 232.08412727271366
+    }
+  },
+  {
+    "slug": "dmxkrew_205_good_ol_daze",
+    "n_kicks": 504,
+    "bpm_median_kick": 132.51,
+    "total_notes": 1036,
+    "warped_count": 972,
+    "warped_fraction": 0.9382239382239382,
+    "max_shift_from_raw_ms": 1912.2,
+    "vs_old_quantize": {
+      "n_a": 944,
+      "n_b": 1033,
+      "shift_mean_ms": 101.17275914869057,
+      "shift_median_ms": 38.44147499999906,
+      "shift_p90_ms": 100.61107545454392,
+      "shift_max_ms": 1903.1496727272668
+    }
+  },
+  {
+    "slug": "dmxkrew_206_denki_no_merodi",
+    "n_kicks": 566,
+    "bpm_median_kick": 234.91,
+    "total_notes": 677,
+    "warped_count": 597,
+    "warped_fraction": 0.8818316100443131,
+    "max_shift_from_raw_ms": 437.9,
+    "vs_old_quantize": {
+      "n_a": 489,
+      "n_b": 677,
+      "shift_mean_ms": 48.35118128834786,
+      "shift_median_ms": 37.06234090910243,
+      "shift_p90_ms": 87.51774454544972,
+      "shift_max_ms": 409.83324999999127
+    }
+  },
+  {
+    "slug": "dmxkrew_210_im_all_alone",
+    "n_kicks": 721,
+    "bpm_median_kick": 143.55,
+    "total_notes": 925,
+    "warped_count": 769,
+    "warped_fraction": 0.8313513513513513,
+    "max_shift_from_raw_ms": 56.2,
+    "vs_old_quantize": {
+      "n_a": 913,
+      "n_b": 925,
+      "shift_mean_ms": 25.870877347407735,
+      "shift_median_ms": 22.658772727254473,
+      "shift_p90_ms": 50.803293636364806,
+      "shift_max_ms": 94.40070000000844
+    }
+  },
+  {
+    "slug": "dmxkrew_211_adrenalin_flow",
+    "n_kicks": 758,
+    "bpm_median_kick": 147.66,
+    "total_notes": 1763,
+    "warped_count": 1588,
+    "warped_fraction": 0.900737379466818,
+    "max_shift_from_raw_ms": 151.4,
+    "vs_old_quantize": {
+      "n_a": 1089,
+      "n_b": 1762,
+      "shift_mean_ms": 27.870638296186875,
+      "shift_median_ms": 20.065613636361945,
+      "shift_p90_ms": 63.647703636360134,
+      "shift_max_ms": 132.7754636363636
+    }
+  },
+  {
+    "slug": "dmxkrew_212_honey",
+    "n_kicks": 492,
+    "bpm_median_kick": 215.33,
+    "total_notes": 592,
+    "warped_count": 517,
+    "warped_fraction": 0.8733108108108109,
+    "max_shift_from_raw_ms": 2735.1,
+    "vs_old_quantize": {
+      "n_a": 537,
+      "n_b": 589,
+      "shift_mean_ms": 137.14405687320055,
+      "shift_median_ms": 28.464954545455612,
+      "shift_p90_ms": 102.90754909091508,
+      "shift_max_ms": 2742.2749681818177
+    }
+  },
+  {
+    "slug": "dmxkrew_fresh_02_you_cant_hide_your_love_aphex_twin_mix",
+    "n_kicks": 736,
+    "bpm_median_kick": 178.21,
+    "total_notes": 1606,
+    "warped_count": 1429,
+    "warped_fraction": 0.8897882938978829,
+    "max_shift_from_raw_ms": 3070.8,
+    "vs_old_quantize": {
+      "n_a": 1327,
+      "n_b": 1605,
+      "shift_mean_ms": 156.20011137220015,
+      "shift_median_ms": 28.45811818178845,
+      "shift_p90_ms": 213.60222000001733,
+      "shift_max_ms": 3058.352999999983
+    }
+  },
+  {
+    "slug": "dmxkrew_fresh_05_body_rock",
+    "n_kicks": 1049,
+    "bpm_median_kick": 246.09,
+    "total_notes": 1483,
+    "warped_count": 1248,
+    "warped_fraction": 0.8415374241402562,
+    "max_shift_from_raw_ms": 163.2,
+    "vs_old_quantize": {
+      "n_a": 1449,
+      "n_b": 1483,
+      "shift_mean_ms": 32.65174094360513,
+      "shift_median_ms": 32.694395454541336,
+      "shift_p90_ms": 55.70101454547114,
+      "shift_max_ms": 195.1055590909334
+    }
+  },
+  {
+    "slug": "dmxkrew_fresh_07_we_are_gonna_make_you_move",
+    "n_kicks": 1074,
+    "bpm_median_kick": 258.4,
+    "total_notes": 1127,
+    "warped_count": 973,
+    "warped_fraction": 0.8633540372670807,
+    "max_shift_from_raw_ms": 1845.0,
+    "vs_old_quantize": {
+      "n_a": 976,
+      "n_b": 1127,
+      "shift_mean_ms": 95.8757708178124,
+      "shift_median_ms": 37.59100000000615,
+      "shift_p90_ms": 105.40610000000328,
+      "shift_max_ms": 1819.7311863636685
+    }
+  },
+  {
+    "slug": "dmxkrew_fresh_08_im_all_alone",
+    "n_kicks": 721,
+    "bpm_median_kick": 143.55,
+    "total_notes": 881,
+    "warped_count": 716,
+    "warped_fraction": 0.8127128263337117,
+    "max_shift_from_raw_ms": 56.3,
+    "vs_old_quantize": {
+      "n_a": 875,
+      "n_b": 881,
+      "shift_mean_ms": 26.606917246754843,
+      "shift_median_ms": 22.785454545454442,
+      "shift_p90_ms": 52.43656363636547,
+      "shift_max_ms": 104.75157727272233
+    }
+  },
+  {
+    "slug": "dmxkrew_fresh_10_europa",
+    "n_kicks": 580,
+    "bpm_median_kick": 224.69,
+    "total_notes": 420,
+    "warped_count": 360,
+    "warped_fraction": 0.8571428571428571,
+    "max_shift_from_raw_ms": 272.9,
+    "vs_old_quantize": {
+      "n_a": 393,
+      "n_b": 420,
+      "shift_mean_ms": 36.27581207494736,
+      "shift_median_ms": 30.607386363641353,
+      "shift_p90_ms": 72.79861727272419,
+      "shift_max_ms": 302.6024818181767
+    }
+  },
+  {
+    "slug": "dmxkrew_fresh_11_ready_to_roll",
+    "n_kicks": 708,
+    "bpm_median_kick": 123.05,
+    "total_notes": 1425,
+    "warped_count": 1286,
+    "warped_fraction": 0.9024561403508772,
+    "max_shift_from_raw_ms": 238.4,
+    "vs_old_quantize": {
+      "n_a": 1278,
+      "n_b": 1425,
+      "shift_mean_ms": 50.41614210414106,
+      "shift_median_ms": 46.79829772729249,
+      "shift_p90_ms": 77.50504045454569,
+      "shift_max_ms": 198.1777863636296
+    }
+  }
+]

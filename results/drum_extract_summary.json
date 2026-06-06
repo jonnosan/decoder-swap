@@ -1,0 +1,464 @@
+[
+  {
+    "slug": "dmxkrew_101_tonight",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1125,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 324,
+      "hat": 656,
+      "snare": 145
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_101_tonight/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_102_the_fallen_kings",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 924,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 688,
+      "kick": 179,
+      "snare": 57
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_102_the_fallen_kings/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_103_william_the_conqueror",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 505,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 334,
+      "snare": 67,
+      "kick": 104
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_103_william_the_conqueror/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_104_the_pleasure_zone",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1748,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1195,
+      "kick": 331,
+      "snare": 222
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_104_the_pleasure_zone/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_105_quantum_logic",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1352,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1003,
+      "kick": 245,
+      "snare": 104
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_105_quantum_logic/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_106_maximillian",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1490,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 293,
+      "hat": 1049,
+      "snare": 148
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_106_maximillian/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_107_when_the_going_gets_weird",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1927,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 339,
+      "hat": 1250,
+      "snare": 338
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_107_when_the_going_gets_weird/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_108_echelon",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1645,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1061,
+      "kick": 385,
+      "snare": 199
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_108_echelon/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_109_jet_lag",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 619,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 619
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_109_jet_lag/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_110_feynman_radio",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1155,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 731,
+      "kick": 423,
+      "snare": 1
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_110_feynman_radio/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_111_dydramol_theme",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 909,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 470,
+      "kick": 299,
+      "snare": 140
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_111_dydramol_theme/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_112_aurora",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 152,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 152
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_112_aurora/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_113_a_heisenberg__b_silence__c_untitled",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2253,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1250,
+      "kick": 698,
+      "snare": 305
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_113_a_heisenberg__b_silence__c_untitled/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_201_17_ways_to_break_my_heart",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2453,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1688,
+      "kick": 531,
+      "snare": 234
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_201_17_ways_to_break_my_heart/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_202_dance_to_the_beat",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1971,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1534,
+      "kick": 230,
+      "snare": 207
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_202_dance_to_the_beat/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_203_you_cant_hide_your_dub",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2194,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1366,
+      "kick": 576,
+      "snare": 252
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_203_you_cant_hide_your_dub/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_204_dmx_funk_rock_mix",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2437,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1835,
+      "snare": 305,
+      "kick": 297
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_204_dmx_funk_rock_mix/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_205_good_ol_daze",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1750,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 391,
+      "hat": 1077,
+      "snare": 282
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_205_good_ol_daze/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_206_denki_no_merodi",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1991,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1263,
+      "snare": 239,
+      "kick": 489
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_206_denki_no_merodi/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_207_emerging_technology",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1888,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 462,
+      "hat": 1161,
+      "snare": 265
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_207_emerging_technology/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_208_place_called_love",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1795,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 274,
+      "hat": 1291,
+      "snare": 230
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_208_place_called_love/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_209_the_glass_room",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1191,
+    "n_skipped": 0,
+    "class_counts": {
+      "snare": 170,
+      "hat": 698,
+      "kick": 323
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_209_the_glass_room/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_210_im_all_alone",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2065,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 720,
+      "hat": 1152,
+      "snare": 193
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_210_im_all_alone/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_211_adrenalin_flow",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 3039,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 2158,
+      "kick": 491,
+      "snare": 390
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_211_adrenalin_flow/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_212_honey",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1807,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1323,
+      "snare": 287,
+      "kick": 197
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_212_honey/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_213_bonkers_goes_back_to_school",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1534,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 976,
+      "kick": 363,
+      "snare": 195
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_213_bonkers_goes_back_to_school/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_01_intro",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 418,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 263,
+      "snare": 86,
+      "kick": 69
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_01_intro/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_02_you_cant_hide_your_love_aphex_twin_mix",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2315,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1559,
+      "kick": 397,
+      "snare": 359
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_02_you_cant_hide_your_love_aphex_twin_mix/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_03_bonkers_goes_back_to_school",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1524,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 959,
+      "kick": 367,
+      "snare": 198
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_03_bonkers_goes_back_to_school/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_04_radio_dmx",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 64,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 64
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_04_radio_dmx/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_05_body_rock",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 3042,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 2072,
+      "snare": 388,
+      "kick": 582
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_05_body_rock/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_06_sound_of_the_dmx",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 202,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 193,
+      "kick": 8,
+      "snare": 1
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_06_sound_of_the_dmx/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_07_we_are_gonna_make_you_move",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 3145,
+    "n_skipped": 0,
+    "class_counts": {
+      "snare": 325,
+      "hat": 2035,
+      "kick": 785
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_07_we_are_gonna_make_you_move/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_08_im_all_alone",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2105,
+    "n_skipped": 0,
+    "class_counts": {
+      "kick": 720,
+      "hat": 1159,
+      "snare": 226
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_08_im_all_alone/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_09_space_pirate",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1773,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1043,
+      "kick": 422,
+      "snare": 308
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_09_space_pirate/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_10_europa",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 1580,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1068,
+      "kick": 304,
+      "snare": 208
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_10_europa/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_11_ready_to_roll",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 2661,
+    "n_skipped": 0,
+    "class_counts": {
+      "snare": 395,
+      "hat": 1732,
+      "kick": 534
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_11_ready_to_roll/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_12_black_music",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 3167,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 1892,
+      "kick": 634,
+      "snare": 641
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_12_black_music/semantic/drums_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_13_acknoledgement",
+    "method_used": "adtof_pytorch",
+    "n_onsets": 235,
+    "n_skipped": 0,
+    "class_counts": {
+      "hat": 171,
+      "kick": 41,
+      "snare": 23
+    },
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_13_acknoledgement/semantic/drums_auto.mid"
+  }
+]

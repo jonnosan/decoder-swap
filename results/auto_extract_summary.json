@@ -1,0 +1,2446 @@
+[
+  {
+    "slug": "dmxkrew_201_17_ways_to_break_my_heart",
+    "bpm": 115.16615525233394,
+    "anchor_s": 17.22920634920635,
+    "anchor_used": 17.098959750566895,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 31.816825396825408,
+    "region_dur_s": 60.0,
+    "score": 0.7891,
+    "stats": {
+      "n_bars": 28,
+      "mean_jaccard": 0.7890553229838945,
+      "n_high_activity": 13,
+      "n_mid_activity": 3,
+      "activity": [
+        0.89,
+        0.64,
+        0.43,
+        0.82,
+        0.79,
+        0.93,
+        1.0,
+        0.93,
+        1.0,
+        0.68,
+        1.0,
+        1.0,
+        1.0,
+        0.82,
+        0.96,
+        0.82
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 115.16615525233394,
+      "bpm_librosa": 114.84375,
+      "bar_s_cross": 2.083945578231294,
+      "drum_start_s": 16,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.7891,
+        "n_bars": 28,
+        "n_high_activity": 13,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.7891,
+        "n_bars": 28,
+        "n_high_activity": 13,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.7891,
+        "n_bars": 28,
+        "n_high_activity": 13,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.3583,
+        "n_bars": 28,
+        "n_high_activity": 3,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.3583,
+        "n_bars": 28,
+        "n_high_activity": 3,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.3583,
+        "n_bars": 28,
+        "n_high_activity": 3,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 18.1,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_201_17_ways_to_break_my_heart/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_101_tonight",
+    "bpm": 82.8583954405962,
+    "anchor_s": 9.775600907029478,
+    "anchor_used": 9.594569160997732,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 9.775600907029478,
+    "region_dur_s": 60.0,
+    "score": 0.8101,
+    "stats": {
+      "n_bars": 20,
+      "mean_jaccard": 0.810117601696549,
+      "n_high_activity": 12,
+      "n_mid_activity": 3,
+      "activity": [
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        0.85,
+        0.95,
+        0.2,
+        0.95,
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        0.6,
+        0.75
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 82.8583954405962,
+      "bpm_librosa": 143.5546875,
+      "bar_s_cross": 2.8965079365079376,
+      "drum_start_s": 1,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.8101,
+        "n_bars": 20,
+        "n_high_activity": 12,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.8101,
+        "n_bars": 20,
+        "n_high_activity": 12,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.8101,
+        "n_bars": 20,
+        "n_high_activity": 12,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.0286,
+        "n_bars": 20,
+        "n_high_activity": 0,
+        "n_mid_activity": 0
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.0286,
+        "n_bars": 20,
+        "n_high_activity": 0,
+        "n_mid_activity": 0
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.0286,
+        "n_bars": 20,
+        "n_high_activity": 0,
+        "n_mid_activity": 0
+      }
+    ],
+    "elapsed_s": 10.0,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_101_tonight/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_02_you_cant_hide_your_love_aphex_twin_mix",
+    "bpm": 156.60511363636363,
+    "anchor_s": 4.481451247165533,
+    "anchor_used": 4.385668934240363,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 183.7859410430839,
+    "region_dur_s": 60.0,
+    "score": 0.2521,
+    "stats": {
+      "n_bars": 39,
+      "mean_jaccard": 0.2521347036529223,
+      "n_high_activity": 0,
+      "n_mid_activity": 14,
+      "activity": [
+        0.36,
+        0.44,
+        0.41,
+        0.28,
+        0.44,
+        0.33,
+        0.44,
+        0.46,
+        0.54,
+        0.41,
+        0.41,
+        0.46,
+        0.46,
+        0.26,
+        0.38,
+        0.41
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 39.52601643929745,
+      "bpm_librosa": 156.60511363636363,
+      "bar_s_cross": 6.071950113378687,
+      "drum_start_s": 4,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.2521,
+        "n_bars": 39,
+        "n_high_activity": 0,
+        "n_mid_activity": 14
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.2521,
+        "n_bars": 39,
+        "n_high_activity": 0,
+        "n_mid_activity": 14
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.2521,
+        "n_bars": 39,
+        "n_high_activity": 0,
+        "n_mid_activity": 14
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.1148,
+        "n_bars": 39,
+        "n_high_activity": 0,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.1148,
+        "n_bars": 39,
+        "n_high_activity": 0,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.1148,
+        "n_bars": 39,
+        "n_high_activity": 0,
+        "n_mid_activity": 1
+      }
+    ],
+    "elapsed_s": 19.6,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_02_you_cant_hide_your_love_aphex_twin_mix/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_106_maximillian",
+    "bpm": 57.49392956667693,
+    "anchor_s": 0.7662585034013606,
+    "anchor_used": 0.5053613945578229,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 92.60204081632662,
+    "region_dur_s": 60.0,
+    "score": 0.7591,
+    "stats": {
+      "n_bars": 14,
+      "mean_jaccard": 0.7590788332546573,
+      "n_high_activity": 10,
+      "n_mid_activity": 3,
+      "activity": [
+        0.71,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.71,
+        0.0,
+        0.79,
+        0.0,
+        0.14,
+        0.64,
+        1.0,
+        1.0,
+        1.0,
+        0.57
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 57.49392956667693,
+      "bpm_librosa": 114.84375,
+      "bar_s_cross": 4.174353741496603,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.7591,
+        "n_bars": 14,
+        "n_high_activity": 10,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.7591,
+        "n_bars": 14,
+        "n_high_activity": 10,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.7591,
+        "n_bars": 14,
+        "n_high_activity": 10,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.5738,
+        "n_bars": 14,
+        "n_high_activity": 4,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.5738,
+        "n_bars": 14,
+        "n_high_activity": 4,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.5738,
+        "n_bars": 14,
+        "n_high_activity": 4,
+        "n_mid_activity": 5
+      }
+    ],
+    "elapsed_s": 12.3,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_106_maximillian/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_211_adrenalin_flow",
+    "bpm": 70.00879740178992,
+    "anchor_s": 0.4876190476190476,
+    "anchor_used": 0.2733602607709751,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 31.340884353741494,
+    "region_dur_s": 60.0,
+    "score": 0.8599,
+    "stats": {
+      "n_bars": 17,
+      "mean_jaccard": 0.8599025667959492,
+      "n_high_activity": 15,
+      "n_mid_activity": 1,
+      "activity": [
+        0.59,
+        0.94,
+        1.0,
+        1.0,
+        0.82,
+        0.94,
+        0.88,
+        1.0,
+        0.82,
+        0.94,
+        1.0,
+        1.0,
+        0.76,
+        1.0,
+        0.94,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 70.00879740178992,
+      "bpm_librosa": 139.6748310810811,
+      "bar_s_cross": 3.4281405895691606,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.8599,
+        "n_bars": 17,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.8599,
+        "n_bars": 17,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.8599,
+        "n_bars": 17,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.5093,
+        "n_bars": 17,
+        "n_high_activity": 3,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.5093,
+        "n_bars": 17,
+        "n_high_activity": 3,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.5093,
+        "n_bars": 17,
+        "n_high_activity": 3,
+        "n_mid_activity": 2
+      }
+    ],
+    "elapsed_s": 19.2,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_211_adrenalin_flow/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_07_we_are_gonna_make_you_move",
+    "bpm": 62.49520244217833,
+    "anchor_s": 0.13931972789115646,
+    "anchor_used": -0.1006986961451248,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 15.500498866213157,
+    "region_dur_s": 60.0,
+    "score": 0.9398,
+    "stats": {
+      "n_bars": 15,
+      "mean_jaccard": 0.9397732426303858,
+      "n_high_activity": 14,
+      "n_mid_activity": 1,
+      "activity": [
+        0.73,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.33,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 62.49520244217833,
+      "bpm_librosa": 126.04801829268293,
+      "bar_s_cross": 3.8402947845805,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.9398,
+        "n_bars": 15,
+        "n_high_activity": 14,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.9398,
+        "n_bars": 15,
+        "n_high_activity": 14,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.9398,
+        "n_bars": 15,
+        "n_high_activity": 14,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.752,
+        "n_bars": 15,
+        "n_high_activity": 9,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.752,
+        "n_bars": 15,
+        "n_high_activity": 9,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.752,
+        "n_bars": 15,
+        "n_high_activity": 9,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 18.2,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_07_we_are_gonna_make_you_move/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_111_dydramol_theme",
+    "bpm": 47.99129409630909,
+    "anchor_s": 5.88625850340136,
+    "anchor_used": 5.573701814058957,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 125.90802721088428,
+    "region_dur_s": 60.0,
+    "score": 0.9156,
+    "stats": {
+      "n_bars": 11,
+      "mean_jaccard": 0.9156060606060605,
+      "n_high_activity": 15,
+      "n_mid_activity": 1,
+      "activity": [
+        0.64,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.91,
+        0.82,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.82,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 47.99129409630909,
+      "bpm_librosa": 95.703125,
+      "bar_s_cross": 5.000907029478455,
+      "drum_start_s": 5,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.9156,
+        "n_bars": 11,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.9156,
+        "n_bars": 11,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.9156,
+        "n_bars": 11,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.7475,
+        "n_bars": 11,
+        "n_high_activity": 12,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.7475,
+        "n_bars": 11,
+        "n_high_activity": 12,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.7475,
+        "n_bars": 11,
+        "n_high_activity": 12,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 13.3,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_111_dydramol_theme/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_202_dance_to_the_beat",
+    "bpm": 60.51215788962132,
+    "anchor_s": 2.705124716553288,
+    "anchor_used": 2.4572406462585032,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 34.43428571428572,
+    "region_dur_s": 60.0,
+    "score": 0.9786,
+    "stats": {
+      "n_bars": 15,
+      "mean_jaccard": 0.9785714285714285,
+      "n_high_activity": 16,
+      "n_mid_activity": 0,
+      "activity": [
+        0.8,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 60.51215788962132,
+      "bpm_librosa": 120.18531976744185,
+      "bar_s_cross": 3.9661451247165544,
+      "drum_start_s": 8,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.9786,
+        "n_bars": 15,
+        "n_high_activity": 16,
+        "n_mid_activity": 0
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.9786,
+        "n_bars": 15,
+        "n_high_activity": 16,
+        "n_mid_activity": 0
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.9786,
+        "n_bars": 15,
+        "n_high_activity": 16,
+        "n_mid_activity": 0
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.6655,
+        "n_bars": 15,
+        "n_high_activity": 10,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.6655,
+        "n_bars": 15,
+        "n_high_activity": 10,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.6655,
+        "n_bars": 15,
+        "n_high_activity": 10,
+        "n_mid_activity": 5
+      }
+    ],
+    "elapsed_s": 16.0,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_202_dance_to_the_beat/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_11_ready_to_roll",
+    "bpm": 61.50234468972815,
+    "anchor_s": 0.13931972789115646,
+    "anchor_used": -0.10457341269841255,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 15.748480725623573,
+    "region_dur_s": 60.0,
+    "score": 0.9169,
+    "stats": {
+      "n_bars": 15,
+      "mean_jaccard": 0.9168594104308391,
+      "n_high_activity": 15,
+      "n_mid_activity": 1,
+      "activity": [
+        1.0,
+        1.0,
+        1.0,
+        0.73,
+        0.6,
+        1.0,
+        1.0,
+        0.87,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.93,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 61.50234468972815,
+      "bpm_librosa": 123.046875,
+      "bar_s_cross": 3.902290249433104,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.9169,
+        "n_bars": 15,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.9169,
+        "n_bars": 15,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.9169,
+        "n_bars": 15,
+        "n_high_activity": 15,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.5772,
+        "n_bars": 15,
+        "n_high_activity": 5,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.5772,
+        "n_bars": 15,
+        "n_high_activity": 5,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.5772,
+        "n_bars": 15,
+        "n_high_activity": 5,
+        "n_mid_activity": 5
+      }
+    ],
+    "elapsed_s": 21.2,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_11_ready_to_roll/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_109_jet_lag",
+    "bpm": 112.34714673913044,
+    "anchor_s": 1.3467573696145125,
+    "anchor_used": 1.2132426303854875,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 1.3467573696145125,
+    "region_dur_s": 60.0,
+    "score": 0.4036,
+    "stats": {
+      "n_bars": 28,
+      "mean_jaccard": 0.40355726357710486,
+      "n_high_activity": 0,
+      "n_mid_activity": 16,
+      "activity": [
+        0.54,
+        0.61,
+        0.5,
+        0.57,
+        0.61,
+        0.57,
+        0.46,
+        0.64,
+        0.61,
+        0.68,
+        0.43,
+        0.54,
+        0.36,
+        0.61,
+        0.43,
+        0.68
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 225.91248665955175,
+      "bpm_librosa": 112.34714673913044,
+      "bar_s_cross": 1.062358276643991,
+      "drum_start_s": 1,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.4036,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 16
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.4036,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 16
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.4036,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 16
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.2041,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.2041,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.2041,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 6
+      }
+    ],
+    "elapsed_s": 11.1,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_109_jet_lag/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_204_dmx_funk_rock_mix",
+    "bpm": 161.4990234375,
+    "anchor_s": 8.78875283446712,
+    "anchor_used": 8.695873015873016,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 53.37106575963719,
+    "region_dur_s": 60.0,
+    "score": 0.3571,
+    "stats": {
+      "n_bars": 40,
+      "mean_jaccard": 0.35712492457684764,
+      "n_high_activity": 0,
+      "n_mid_activity": 16,
+      "activity": [
+        0.62,
+        0.57,
+        0.33,
+        0.6,
+        0.47,
+        0.45,
+        0.57,
+        0.47,
+        0.53,
+        0.6,
+        0.53,
+        0.5,
+        0.47,
+        0.5,
+        0.55,
+        0.57
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 239.57625967676174,
+      "bpm_librosa": 161.4990234375,
+      "bar_s_cross": 1.001768707482995,
+      "drum_start_s": 8,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.3571,
+        "n_bars": 40,
+        "n_high_activity": 0,
+        "n_mid_activity": 16
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.3571,
+        "n_bars": 40,
+        "n_high_activity": 0,
+        "n_mid_activity": 16
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.3571,
+        "n_bars": 40,
+        "n_high_activity": 0,
+        "n_mid_activity": 16
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.1277,
+        "n_bars": 40,
+        "n_high_activity": 0,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.1277,
+        "n_bars": 40,
+        "n_high_activity": 0,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.1277,
+        "n_bars": 40,
+        "n_high_activity": 0,
+        "n_mid_activity": 1
+      }
+    ],
+    "elapsed_s": 18.9,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_204_dmx_funk_rock_mix/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_206_denki_no_merodi",
+    "bpm": 65.00230308613544,
+    "anchor_s": 21.954467120181405,
+    "anchor_used": 21.723706065759636,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 36.7231746031746,
+    "region_dur_s": 60.0,
+    "score": 0.7477,
+    "stats": {
+      "n_bars": 16,
+      "mean_jaccard": 0.7477407661782661,
+      "n_high_activity": 13,
+      "n_mid_activity": 2,
+      "activity": [
+        0.56,
+        0.69,
+        0.94,
+        0.94,
+        0.94,
+        0.94,
+        0.25,
+        0.94,
+        0.94,
+        0.88,
+        0.88,
+        0.94,
+        0.75,
+        0.94,
+        0.75,
+        0.94
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 65.00230308613544,
+      "bpm_librosa": 129.19921875,
+      "bar_s_cross": 3.6921768707482983,
+      "drum_start_s": 28,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.7477,
+        "n_bars": 16,
+        "n_high_activity": 13,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.7477,
+        "n_bars": 16,
+        "n_high_activity": 13,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.7477,
+        "n_bars": 16,
+        "n_high_activity": 13,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.4685,
+        "n_bars": 16,
+        "n_high_activity": 5,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.4685,
+        "n_bars": 16,
+        "n_high_activity": 5,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.4685,
+        "n_bars": 16,
+        "n_high_activity": 5,
+        "n_mid_activity": 4
+      }
+    ],
+    "elapsed_s": 15.6,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_206_denki_no_merodi/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_205_good_ol_daze",
+    "bpm": 99.99527611129481,
+    "anchor_s": 15.66185941043084,
+    "anchor_used": 15.511852324263039,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 15.66185941043084,
+    "region_dur_s": 60.0,
+    "score": 0.5044,
+    "stats": {
+      "n_bars": 24,
+      "mean_jaccard": 0.504405311878138,
+      "n_high_activity": 9,
+      "n_mid_activity": 6,
+      "activity": [
+        0.75,
+        0.67,
+        0.21,
+        0.75,
+        0.75,
+        0.5,
+        0.75,
+        0.79,
+        0.62,
+        0.75,
+        0.58,
+        0.71,
+        0.71,
+        0.54,
+        0.79,
+        0.46
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 99.99527611129481,
+      "bpm_librosa": 126.04801829268293,
+      "bar_s_cross": 2.4001133786848072,
+      "drum_start_s": 15,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.5044,
+        "n_bars": 24,
+        "n_high_activity": 9,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.5044,
+        "n_bars": 24,
+        "n_high_activity": 9,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.5044,
+        "n_bars": 24,
+        "n_high_activity": 9,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.2517,
+        "n_bars": 24,
+        "n_high_activity": 0,
+        "n_mid_activity": 10
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.2517,
+        "n_bars": 24,
+        "n_high_activity": 0,
+        "n_mid_activity": 10
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.2517,
+        "n_bars": 24,
+        "n_high_activity": 0,
+        "n_mid_activity": 10
+      }
+    ],
+    "elapsed_s": 18.1,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_205_good_ol_daze/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_203_you_cant_hide_your_dub",
+    "bpm": 95.703125,
+    "anchor_s": 17.705215419501133,
+    "anchor_used": 17.548480725623584,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 32.75174603174603,
+    "region_dur_s": 60.0,
+    "score": 0.6655,
+    "stats": {
+      "n_bars": 23,
+      "mean_jaccard": 0.6654559208907036,
+      "n_high_activity": 13,
+      "n_mid_activity": 3,
+      "activity": [
+        0.52,
+        0.91,
+        0.83,
+        0.91,
+        0.83,
+        0.87,
+        0.78,
+        0.87,
+        0.74,
+        0.91,
+        0.83,
+        0.61,
+        0.83,
+        0.87,
+        0.65,
+        0.74
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 59.827707056775154,
+      "bpm_librosa": 95.703125,
+      "bar_s_cross": 4.011519274376425,
+      "drum_start_s": 16,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.6655,
+        "n_bars": 23,
+        "n_high_activity": 13,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.6655,
+        "n_bars": 23,
+        "n_high_activity": 13,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.6655,
+        "n_bars": 23,
+        "n_high_activity": 13,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.2209,
+        "n_bars": 23,
+        "n_high_activity": 0,
+        "n_mid_activity": 13
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.2209,
+        "n_bars": 23,
+        "n_high_activity": 0,
+        "n_mid_activity": 13
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.2209,
+        "n_bars": 23,
+        "n_high_activity": 0,
+        "n_mid_activity": 13
+      }
+    ],
+    "elapsed_s": 16.4,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_203_you_cant_hide_your_dub/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_05_body_rock",
+    "bpm": 120.89644301281625,
+    "anchor_s": 15.522539682539682,
+    "anchor_used": 15.398466553287982,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 15.522539682539682,
+    "region_dur_s": 60.0,
+    "score": 0.6563,
+    "stats": {
+      "n_bars": 30,
+      "mean_jaccard": 0.6562919264643403,
+      "n_high_activity": 9,
+      "n_mid_activity": 6,
+      "activity": [
+        0.53,
+        0.63,
+        0.7,
+        0.5,
+        0.97,
+        0.83,
+        0.97,
+        0.6,
+        0.93,
+        0.37,
+        0.73,
+        0.6,
+        0.93,
+        1.0,
+        1.0,
+        0.17
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 120.89644301281625,
+      "bpm_librosa": 120.18531976744185,
+      "bar_s_cross": 1.9851700680272089,
+      "drum_start_s": 15,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.6563,
+        "n_bars": 30,
+        "n_high_activity": 9,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.6563,
+        "n_bars": 30,
+        "n_high_activity": 9,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.6563,
+        "n_bars": 30,
+        "n_high_activity": 9,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.587,
+        "n_bars": 30,
+        "n_high_activity": 4,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.587,
+        "n_bars": 30,
+        "n_high_activity": 4,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.587,
+        "n_bars": 30,
+        "n_high_activity": 4,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 18.9,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_05_body_rock/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_104_the_pleasure_zone",
+    "bpm": 92.28515625,
+    "anchor_s": 26.226938775510202,
+    "anchor_used": 26.06439909297052,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 130.25233560090703,
+    "region_dur_s": 60.0,
+    "score": 0.4642,
+    "stats": {
+      "n_bars": 23,
+      "mean_jaccard": 0.46419274072436123,
+      "n_high_activity": 3,
+      "n_mid_activity": 13,
+      "activity": [
+        0.52,
+        0.61,
+        0.7,
+        0.57,
+        0.74,
+        0.7,
+        0.74,
+        0.52,
+        0.61,
+        0.7,
+        0.61,
+        0.65,
+        0.65,
+        0.52,
+        0.74,
+        0.61
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 367.9727427597962,
+      "bpm_librosa": 92.28515625,
+      "bar_s_cross": 0.6522222222222211,
+      "drum_start_s": 14,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.4642,
+        "n_bars": 23,
+        "n_high_activity": 3,
+        "n_mid_activity": 13
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.4642,
+        "n_bars": 23,
+        "n_high_activity": 3,
+        "n_mid_activity": 13
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.4642,
+        "n_bars": 23,
+        "n_high_activity": 3,
+        "n_mid_activity": 13
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.1132,
+        "n_bars": 23,
+        "n_high_activity": 0,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.1132,
+        "n_bars": 23,
+        "n_high_activity": 0,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.1132,
+        "n_bars": 23,
+        "n_high_activity": 0,
+        "n_mid_activity": 2
+      }
+    ],
+    "elapsed_s": 17.0,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_104_the_pleasure_zone/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_212_honey",
+    "bpm": 67.52842395396019,
+    "anchor_s": 12.712925170068027,
+    "anchor_used": 12.490796485260772,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 133.55092970521548,
+    "region_dur_s": 60.0,
+    "score": 0.5414,
+    "stats": {
+      "n_bars": 16,
+      "mean_jaccard": 0.5414052614052615,
+      "n_high_activity": 7,
+      "n_mid_activity": 6,
+      "activity": [
+        0.75,
+        0.75,
+        0.62,
+        0.25,
+        0.5,
+        0.44,
+        0.75,
+        0.06,
+        1.0,
+        0.25,
+        0.75,
+        0.31,
+        0.38,
+        0.56,
+        1.0,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 67.52842395396019,
+      "bpm_librosa": 135.99917763157896,
+      "bar_s_cross": 3.5540589569161014,
+      "drum_start_s": 14,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.5414,
+        "n_bars": 16,
+        "n_high_activity": 7,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.5414,
+        "n_bars": 16,
+        "n_high_activity": 7,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.5414,
+        "n_bars": 16,
+        "n_high_activity": 7,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.4475,
+        "n_bars": 16,
+        "n_high_activity": 3,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.4475,
+        "n_bars": 16,
+        "n_high_activity": 3,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.4475,
+        "n_bars": 16,
+        "n_high_activity": 3,
+        "n_mid_activity": 6
+      }
+    ],
+    "elapsed_s": 14.6,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_212_honey/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_108_echelon",
+    "bpm": 123.1958282894129,
+    "anchor_s": 0.6617687074829932,
+    "anchor_used": 0.5400113378684812,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 29.883537414965872,
+    "region_dur_s": 60.0,
+    "score": 0.2414,
+    "stats": {
+      "n_bars": 30,
+      "mean_jaccard": 0.24140667761357415,
+      "n_high_activity": 1,
+      "n_mid_activity": 2,
+      "activity": [
+        0.23,
+        0.33,
+        0.0,
+        0.0,
+        0.0,
+        0.07,
+        0.0,
+        0.23,
+        0.1,
+        0.03,
+        0.0,
+        0.7,
+        0.17,
+        0.43,
+        0.13,
+        0.2
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 123.1958282894129,
+      "bpm_librosa": 123.046875,
+      "bar_s_cross": 1.948117913832192,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.2414,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.2414,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.2414,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.2202,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.2202,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.2202,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 1
+      }
+    ],
+    "elapsed_s": 15.8,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_108_echelon/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_107_when_the_going_gets_weird",
+    "bpm": 113.95103464611024,
+    "anchor_s": 34.028843537414964,
+    "anchor_used": 33.89720804988662,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 78.25836734693873,
+    "region_dur_s": 60.0,
+    "score": 0.5848,
+    "stats": {
+      "n_bars": 28,
+      "mean_jaccard": 0.5847919203077934,
+      "n_high_activity": 5,
+      "n_mid_activity": 5,
+      "activity": [
+        0.61,
+        0.04,
+        0.07,
+        0.54,
+        0.93,
+        0.57,
+        0.93,
+        1.0,
+        0.25,
+        0.71,
+        0.57,
+        0.0,
+        0.93,
+        0.64,
+        0.0,
+        0.25
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 113.95103464611024,
+      "bpm_librosa": 114.84375,
+      "bar_s_cross": 2.1061678004535125,
+      "drum_start_s": 34,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.5848,
+        "n_bars": 28,
+        "n_high_activity": 5,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.5848,
+        "n_bars": 28,
+        "n_high_activity": 5,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.5848,
+        "n_bars": 28,
+        "n_high_activity": 5,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.2637,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.2637,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.2637,
+        "n_bars": 28,
+        "n_high_activity": 0,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 16.0,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_107_when_the_going_gets_weird/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_113_a_heisenberg__b_silence__c_untitled",
+    "bpm": 119.99047694627407,
+    "anchor_s": 7.743854875283446,
+    "anchor_used": 7.618844954648526,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 37.74623582766441,
+    "region_dur_s": 60.0,
+    "score": 0.6055,
+    "stats": {
+      "n_bars": 29,
+      "mean_jaccard": 0.6055397804166277,
+      "n_high_activity": 8,
+      "n_mid_activity": 7,
+      "activity": [
+        0.76,
+        0.79,
+        0.34,
+        0.62,
+        0.69,
+        1.0,
+        0.28,
+        0.93,
+        0.79,
+        0.41,
+        0.93,
+        0.38,
+        0.69,
+        1.0,
+        0.59,
+        0.76
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 119.99047694627407,
+      "bpm_librosa": 120.18531976744185,
+      "bar_s_cross": 2.0001587301587307,
+      "drum_start_s": 8,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.6055,
+        "n_bars": 29,
+        "n_high_activity": 8,
+        "n_mid_activity": 7
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.6055,
+        "n_bars": 29,
+        "n_high_activity": 8,
+        "n_mid_activity": 7
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.6055,
+        "n_bars": 29,
+        "n_high_activity": 8,
+        "n_mid_activity": 7
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.3243,
+        "n_bars": 29,
+        "n_high_activity": 1,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.3243,
+        "n_bars": 29,
+        "n_high_activity": 1,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.3243,
+        "n_bars": 29,
+        "n_high_activity": 1,
+        "n_mid_activity": 6
+      }
+    ],
+    "elapsed_s": 32.1,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_113_a_heisenberg__b_silence__c_untitled/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_105_quantum_logic",
+    "bpm": 119.89532947426856,
+    "anchor_s": 6.2693877551020405,
+    "anchor_used": 6.144278628117913,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 96.34795918367341,
+    "region_dur_s": 60.0,
+    "score": 0.5436,
+    "stats": {
+      "n_bars": 29,
+      "mean_jaccard": 0.5436189836436142,
+      "n_high_activity": 3,
+      "n_mid_activity": 4,
+      "activity": [
+        0.62,
+        1.0,
+        1.0,
+        0.52,
+        1.0,
+        0.24,
+        0.14,
+        0.17,
+        0.31,
+        0.03,
+        0.0,
+        0.03,
+        0.14,
+        0.14,
+        0.17,
+        0.41
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 119.89532947426856,
+      "bpm_librosa": 120.18531976744185,
+      "bar_s_cross": 2.0017460317460305,
+      "drum_start_s": 6,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.5436,
+        "n_bars": 29,
+        "n_high_activity": 3,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.5436,
+        "n_bars": 29,
+        "n_high_activity": 3,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.5436,
+        "n_bars": 29,
+        "n_high_activity": 3,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.2433,
+        "n_bars": 29,
+        "n_high_activity": 0,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.2433,
+        "n_bars": 29,
+        "n_high_activity": 0,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.2433,
+        "n_bars": 29,
+        "n_high_activity": 0,
+        "n_mid_activity": 4
+      }
+    ],
+    "elapsed_s": 13.9,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_105_quantum_logic/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_210_im_all_alone",
+    "bpm": 137.24422313856675,
+    "anchor_s": 0.7082086167800453,
+    "anchor_used": 0.5989143990929704,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 0.7082086167800453,
+    "region_dur_s": 60.0,
+    "score": 0.4649,
+    "stats": {
+      "n_bars": 34,
+      "mean_jaccard": 0.4648553268874123,
+      "n_high_activity": 3,
+      "n_mid_activity": 6,
+      "activity": [
+        0.59,
+        0.62,
+        0.38,
+        0.09,
+        0.91,
+        0.35,
+        0.71,
+        0.03,
+        0.29,
+        0.0,
+        0.0,
+        0.15,
+        0.85,
+        0.41,
+        0.68,
+        0.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 137.24422313856675,
+      "bpm_librosa": 135.99917763157896,
+      "bar_s_cross": 1.7487074829931988,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.4649,
+        "n_bars": 34,
+        "n_high_activity": 3,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.4649,
+        "n_bars": 34,
+        "n_high_activity": 3,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.4649,
+        "n_bars": 34,
+        "n_high_activity": 3,
+        "n_mid_activity": 6
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.411,
+        "n_bars": 34,
+        "n_high_activity": 1,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.411,
+        "n_bars": 34,
+        "n_high_activity": 1,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.411,
+        "n_bars": 34,
+        "n_high_activity": 1,
+        "n_mid_activity": 5
+      }
+    ],
+    "elapsed_s": 18.4,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_210_im_all_alone/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_110_feynman_radio",
+    "bpm": 55.48362069417428,
+    "anchor_s": 17.554285714285715,
+    "anchor_used": 17.283935657596373,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 138.67111111111123,
+    "region_dur_s": 60.0,
+    "score": 0.8182,
+    "stats": {
+      "n_bars": 13,
+      "mean_jaccard": 0.8181741335587488,
+      "n_high_activity": 12,
+      "n_mid_activity": 2,
+      "activity": [
+        0.69,
+        0.85,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.92,
+        1.0,
+        0.46,
+        1.0,
+        0.15,
+        0.92,
+        0.77,
+        1.0,
+        0.23
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 55.48362069417428,
+      "bpm_librosa": 109.95678191489361,
+      "bar_s_cross": 4.325600907029482,
+      "drum_start_s": 17,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.8182,
+        "n_bars": 13,
+        "n_high_activity": 12,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.8182,
+        "n_bars": 13,
+        "n_high_activity": 12,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.8182,
+        "n_bars": 13,
+        "n_high_activity": 12,
+        "n_mid_activity": 2
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.7118,
+        "n_bars": 13,
+        "n_high_activity": 3,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.7118,
+        "n_bars": 13,
+        "n_high_activity": 3,
+        "n_mid_activity": 1
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.7118,
+        "n_bars": 13,
+        "n_high_activity": 3,
+        "n_mid_activity": 1
+      }
+    ],
+    "elapsed_s": 17.6,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_110_feynman_radio/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_103_william_the_conqueror",
+    "bpm": 68.90625,
+    "anchor_s": 28.560544217687074,
+    "anchor_used": 28.34285714285714,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 87.77142857142857,
+    "region_dur_s": 60.0,
+    "score": 0.7656,
+    "stats": {
+      "n_bars": 17,
+      "mean_jaccard": 0.7655843339666869,
+      "n_high_activity": 8,
+      "n_mid_activity": 4,
+      "activity": [
+        0.41,
+        1.0,
+        0.06,
+        1.0,
+        0.06,
+        1.0,
+        0.12,
+        1.0,
+        0.35,
+        1.0,
+        0.18,
+        1.0,
+        0.47,
+        1.0,
+        0.35,
+        1.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 278.37247836721775,
+      "bpm_librosa": 68.90625,
+      "bar_s_cross": 0.8621541950113389,
+      "drum_start_s": 14,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.7656,
+        "n_bars": 17,
+        "n_high_activity": 8,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.7656,
+        "n_bars": 17,
+        "n_high_activity": 8,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.7656,
+        "n_bars": 17,
+        "n_high_activity": 8,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.4556,
+        "n_bars": 17,
+        "n_high_activity": 3,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.4556,
+        "n_bars": 17,
+        "n_high_activity": 3,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.4556,
+        "n_bars": 17,
+        "n_high_activity": 3,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 10.9,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_103_william_the_conqueror/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_08_im_all_alone",
+    "bpm": 137.2442231385669,
+    "anchor_s": 0.5572789115646258,
+    "anchor_used": 0.447984693877551,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 0.5572789115646258,
+    "region_dur_s": 60.0,
+    "score": 0.4586,
+    "stats": {
+      "n_bars": 34,
+      "mean_jaccard": 0.45856431645201695,
+      "n_high_activity": 3,
+      "n_mid_activity": 5,
+      "activity": [
+        0.56,
+        0.59,
+        0.41,
+        0.12,
+        0.79,
+        0.32,
+        0.65,
+        0.0,
+        0.29,
+        0.0,
+        0.0,
+        0.18,
+        0.82,
+        0.26,
+        0.88,
+        0.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 137.2442231385669,
+      "bpm_librosa": 135.99917763157896,
+      "bar_s_cross": 1.748707482993197,
+      "drum_start_s": 0,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.4586,
+        "n_bars": 34,
+        "n_high_activity": 3,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.4586,
+        "n_bars": 34,
+        "n_high_activity": 3,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.4586,
+        "n_bars": 34,
+        "n_high_activity": 3,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.4113,
+        "n_bars": 34,
+        "n_high_activity": 2,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.4113,
+        "n_bars": 34,
+        "n_high_activity": 2,
+        "n_mid_activity": 3
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.4113,
+        "n_bars": 34,
+        "n_high_activity": 2,
+        "n_mid_activity": 3
+      }
+    ],
+    "elapsed_s": 18.3,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_08_im_all_alone/semantic/bass_auto.mid"
+  },
+  {
+    "slug": "dmxkrew_fresh_10_europa",
+    "bpm": 120.0530846973152,
+    "anchor_s": 8.672653061224489,
+    "anchor_used": 8.547708333333333,
+    "anchor_offset_steps": -1,
+    "pre_merge_ms": 0,
+    "region_start": 24.665578231292507,
+    "region_dur_s": 60.0,
+    "score": 0.4495,
+    "stats": {
+      "n_bars": 30,
+      "mean_jaccard": 0.44950100346652067,
+      "n_high_activity": 2,
+      "n_mid_activity": 4,
+      "activity": [
+        0.43,
+        0.13,
+        0.97,
+        0.03,
+        0.67,
+        0.13,
+        0.63,
+        0.13,
+        0.23,
+        0.07,
+        0.5,
+        0.0,
+        0.77,
+        0.07,
+        0.1,
+        0.0
+      ]
+    },
+    "bpm_diag": {
+      "bpm_cross": 120.0530846973152,
+      "bpm_librosa": 120.18531976744185,
+      "bar_s_cross": 1.9991156462585025,
+      "drum_start_s": 8,
+      "anchor_source": "librosa_drums_first_beat"
+    },
+    "sweep_all": [
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": -1,
+        "score": 0.4495,
+        "n_bars": 30,
+        "n_high_activity": 2,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 0,
+        "score": 0.4495,
+        "n_bars": 30,
+        "n_high_activity": 2,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 0,
+        "offset_steps": 1,
+        "score": 0.4495,
+        "n_bars": 30,
+        "n_high_activity": 2,
+        "n_mid_activity": 4
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": -1,
+        "score": 0.4023,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 0,
+        "score": 0.4023,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 5
+      },
+      {
+        "pre_merge_ms": 60,
+        "offset_steps": 1,
+        "score": 0.4023,
+        "n_bars": 30,
+        "n_high_activity": 1,
+        "n_mid_activity": 5
+      }
+    ],
+    "elapsed_s": 15.9,
+    "out_midi": "/Users/jonno/src/decoder_swap/data/song_test/dmxkrew_fresh_10_europa/semantic/bass_auto.mid"
+  }
+]
